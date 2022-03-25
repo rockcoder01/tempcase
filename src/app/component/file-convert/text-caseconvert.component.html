@@ -30,8 +30,7 @@
                     color="accent">snakeCase</button>
                 <button mat-flat-button (click)="upperCase('paramCase')" class="mx-1 my-1"
                     color="primary">paramCase</button>
-                <button mat-flat-button (click)="upperCase('dotCase')" class="mx-1 my-1"
-                    color="warn">dotCase</button>
+                <button mat-flat-button (click)="upperCase('dotCase')" class="mx-1 my-1" color="warn">dotCase</button>
                 <button mat-flat-button (click)="upperCase('noCase')" class="mx-1 my-1" color="warn">noCase</button>
                 <button mat-flat-button (click)="upperCase('constantCase')" class="mx-1 my-1"
                     color="primary">constantCase</button>
@@ -41,8 +40,7 @@
                     color="accent">lowerCaseFirst</button>
                 <button mat-flat-button (click)="upperCase('upperCaseFirst')" class="mx-1 my-1"
                     color="primary">upperCaseFirst</button>
-                <button mat-flat-button (click)="upperCase('swapCase')" class="mx-1 my-1"
-                    color="warn">swapCase</button>
+                <button mat-flat-button (click)="upperCase('swapCase')" class="mx-1 my-1" color="warn">swapCase</button>
                 <button mat-flat-button (click)="upperCase('sentenceCase')" class="mx-1 my-1"
                     color="primary">sentenceCase</button>
 
@@ -52,15 +50,67 @@
             <form class="example-form mt-4">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Updated Text</mat-label>
-                    <textarea matInput rows="15" [(ngModel)]="changeTextValue"  id="text-content-change" name="changetext"
-                        placeholder="Ex. Hello Word"></textarea>
+                    <textarea matInput rows="15" [(ngModel)]="changeTextValue" id="text-content-change"
+                        name="changetext" placeholder="Ex. Hello Word"></textarea>
                 </mat-form-field>
             </form>
-          
-            <ngx-copy-to-clipboard  class="copy-clipboard" target="#text-content-change" [action]="'cut'" [success]="onSuccess" [error]="onError">Copy to clipboard
+
+            <ngx-copy-to-clipboard class="copy-clipboard" target="#text-content-change" [action]="'cut'"
+                [success]="onSuccess" [error]="onError">Copy to clipboard
             </ngx-copy-to-clipboard>
-            <button mat-flat-button (click)="createFile()" class="mx-1 my-1"
-            color="primary">Create File</button>
+            <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
         </div>
+    </div>
+
+    <hr>
+    <div class="p-4">
+        <h1><b>sentence case:</b></h1>
+        <p class="pragraph-font">
+            sentence converter is an online text and word processing utility it’s helps to you to allow any text you
+            would like to select and transforming into fully structured sentence
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h1><b>lower case:</b></h1>
+        <p class="pragraph-font">
+            for those who wants to uncapitalised there text this lowercase would be very helpful for them it’s helps to
+            transforming selected text to lower case as well as converting i’s into l’s.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h1><b>Upper case:</b></h1>
+        <p class="pragraph-font">
+            this would be helpful for Converting or transform the selected text from lower case to capital letter(upper
+            case)
+            Or lower case to lower case.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h1><b>Capitalisation case:</b></h1>
+        <p class="pragraph-font">
+            its helps in converting with its first letter in uppercase and the remaining letters in lowercase.
+            Capitalisation is vary by language and are often quite complex, but in most modern languages that have
+            capitalisation, the first word of every sentence is capitalised, as are all proper nouns.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h1><b>Alternating case:</b></h1>
+        <p class="pragraph-font">
+            The alternating case converter converts text, so as a result the initial letter is a capital one and from
+            there on the cases alternate between uppercase and lowercase. For this, a text needs to be entered into the
+            form. Alternating case writing is particularly common on the Internet.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h1><b>Title case:</b></h1>
+        <p class="pragraph-font">
+            In title case, major words are capitalized, and most minor words are lowercase. In sentence case, most major
+            and minor words are lowercase (proper nouns are an exception in that they are always capitalized).
+        </p>
     </div>
 </div>
