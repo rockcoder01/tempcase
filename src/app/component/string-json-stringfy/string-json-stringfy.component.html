@@ -1,59 +1,27 @@
 <div class="container">
+    <h1 class="mt-4 font-weight-bold">String TO JSON Stringify</h1>
     <div class="row">
         <div class="col-md-6">
             <form class="example-form mt-4">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Enter Text</mat-label>
-                    <textarea matInput rows="15" [(ngModel)]="textValue" name="textEnter"
+                    <textarea matInput rows="15" (keyup)="stringTobinary()" [(ngModel)]="textValue" name="textEnter"
                         placeholder="Ex. Hello Word"></textarea>
                     <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
                         <mat-icon>close</mat-icon>
                     </button>
                 </mat-form-field>
             </form>
-            <div class="row">
-                <button mat-flat-button (click)="upperCase('upperCase')" class="mx-1 my-1"
-                    color="primary">UpperCase</button>
-                <button mat-flat-button (click)="upperCase('camelCase')" class="mx-1 my-1"
-                    color="accent">camelCase</button>
-                <button mat-flat-button (click)="upperCase('pascalCase')" class="mx-1 my-1"
-                    color="warn">pascalCase</button>
-                <button mat-flat-button (click)="upperCase('capitalCase')" class="mx-1 my-1"
-                    color="primary">capitalCase</button>
-                <button mat-flat-button (click)="upperCase('headerCase')" class="mx-1 my-1"
-                    color="primary">headerCase</button>
-                <button mat-flat-button (click)="upperCase('titleCase')" class="mx-1 my-1"
-                    color="primary">titleCase</button>
-                <button mat-flat-button (click)="upperCase('pathCase')" class="mx-1 my-1"
-                    color="accent">pathCase</button>
-                <button mat-flat-button (click)="upperCase('snakeCase')" class="mx-1 my-1"
-                    color="accent">snakeCase</button>
-                <button mat-flat-button (click)="upperCase('paramCase')" class="mx-1 my-1"
-                    color="primary">paramCase</button>
-                <button mat-flat-button (click)="upperCase('dotCase')" class="mx-1 my-1" color="warn">dotCase</button>
-                <button mat-flat-button (click)="upperCase('alternateCase')" class="mx-1 my-1" color="warn">aLtErNaTiNg cAsE</button>
-                <button mat-flat-button (click)="upperCase('constantCase')" class="mx-1 my-1"
-                    color="primary">constantCase</button>
-                <button mat-flat-button (click)="upperCase('lowerCase')" class="mx-1 my-1"
-                    color="primary">lowerCase</button>
-                <button mat-flat-button (click)="upperCase('lowerCaseFirst')" class="mx-1 my-1"
-                    color="accent">lowerCaseFirst</button>
-                <button mat-flat-button (click)="upperCase('upperCaseFirst')" class="mx-1 my-1"
-                    color="primary">upperCaseFirst</button>
-                <button mat-flat-button (click)="upperCase('swapCase')" class="mx-1 my-1" color="warn">swapCase</button>
-                <button mat-flat-button (click)="upperCase('sentenceCase')" class="mx-1 my-1"
-                    color="primary">sentenceCase</button>
-
-            </div>
         </div>
         <div class="col-md-6">
             <form class="example-form mt-4">
                 <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Updated Text</mat-label>
+                    <mat-label>JSON Stringify Text</mat-label>
                     <textarea matInput rows="15" [(ngModel)]="changeTextValue" id="text-content-change"
-                        name="changetext" placeholder="Ex. Hello Word"></textarea>
+                        name="changetext" placeholder='Ex."Type or paste your content here" '></textarea>
                 </mat-form-field>
             </form>
+
             <div class="alert alert-success" *ngIf="formateType" role="alert">
                 text convertcase successfully to - {{formateType}}      
             </div>

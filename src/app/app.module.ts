@@ -17,12 +17,18 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSliderModule } from '@angular/material/slider';
 import { NgxCopyToClipboardModule } from 'ngx-copy-to-clipboard';
+import { WideTextConvertorComponent } from './component/wide-text-convertor/wide-text-convertor.component';
+import { StringToBinaryComponent } from './component/string-to-binary/string-to-binary.component';
+import { StringJsonStringfyComponent } from './component/string-json-stringfy/string-json-stringfy.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    TextCaseConvertComponent
+    TextCaseConvertComponent,
+    WideTextConvertorComponent,
+    StringToBinaryComponent,
+    StringJsonStringfyComponent
   ],
   imports: [
     BrowserModule,
