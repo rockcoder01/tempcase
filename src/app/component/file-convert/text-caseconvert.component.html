@@ -31,7 +31,8 @@
                 <button mat-flat-button (click)="upperCase('paramCase')" class="mx-1 my-1"
                     color="primary">paramCase</button>
                 <button mat-flat-button (click)="upperCase('dotCase')" class="mx-1 my-1" color="warn">dotCase</button>
-                <button mat-flat-button (click)="upperCase('alternateCase')" class="mx-1 my-1" color="warn">aLtErNaTiNg cAsE</button>
+                <button mat-flat-button (click)="upperCase('alternateCase')" class="mx-1 my-1" color="warn">aLtErNaTiNg
+                    cAsE</button>
                 <button mat-flat-button (click)="upperCase('constantCase')" class="mx-1 my-1"
                     color="primary">constantCase</button>
                 <button mat-flat-button (click)="upperCase('lowerCase')" class="mx-1 my-1"
@@ -55,16 +56,16 @@
                 </mat-form-field>
             </form>
             <div class="alert alert-success" *ngIf="formateType" role="alert">
-                text convertcase successfully to - {{formateType}}      
+                text convertcase successfully to - {{formateType}}
             </div>
-            <button  mat-flat-button class="mx-1 my-1" color="primary"  (click)="copyClipBoard()">Copy clipboard</button>
+            <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
             <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
         </div>
     </div>
 
     <hr>
     <div class="p-4">
-        <h1><b>sentence case:</b></h1>
+        <h2><b>Sentence Case:</b></h2>
         <p class="pragraph-font">
             sentence converter is an online text and word processing utility it’s helps to you to allow any text you
             would like to select and transforming into fully structured sentence
@@ -72,7 +73,7 @@
     </div>
 
     <div class="p-4">
-        <h2><b>lower case:</b></h2>
+        <h2><b>Lower Case:</b></h2>
         <p class="pragraph-font">
             for those who wants to uncapitalised there text this lowercase would be very helpful for them it’s helps to
             transforming selected text to lower case as well as converting i’s into l’s.
@@ -80,7 +81,7 @@
     </div>
 
     <div class="p-4">
-        <h3><b>Upper case:</b></h3>
+        <h2><b>Upper Case:</b></h2>
         <p class="pragraph-font">
             this would be helpful for Converting or transform the selected text from lower case to capital letter(upper
             case)
@@ -89,7 +90,7 @@
     </div>
 
     <div class="p-4">
-        <h4><b>Capitalisation case:</b></h4>
+        <h2><b>Capitalisation Case:</b></h2>
         <p class="pragraph-font">
             its helps in converting with its first letter in uppercase and the remaining letters in lowercase.
             Capitalisation is vary by language and are often quite complex, but in most modern languages that have
@@ -98,7 +99,7 @@
     </div>
 
     <div class="p-4">
-        <h3><b>Alternating case:</b></h3>
+        <h2><b>Alternating Case:</b></h2>
         <p class="pragraph-font">
             The alternating case converter converts text, so as a result the initial letter is a capital one and from
             there on the cases alternate between uppercase and lowercase. For this, a text needs to be entered into the
@@ -107,10 +108,31 @@
     </div>
 
     <div class="p-4">
-        <h4><b>Title case:</b></h4>
+        <h2><b>Title Case:</b></h2>
         <p class="pragraph-font">
             In title case, major words are capitalized, and most minor words are lowercase. In sentence case, most major
             and minor words are lowercase (proper nouns are an exception in that they are always capitalized).
         </p>
     </div>
+
+    <div class="p-4">
+        <h2><b>Binary to Text Translator:</b></h2>
+        <p class="pragraph-font">
+            it's tool help you to convert binary to English and English to binary.when you convert english to binary
+            when return only
+            0 and 1. the 0 and 1 binary represent On and off,"0" represents no flow of electricity, and "1" represents
+            electricity being allowed to flow.
+
+            (E.g: 01000101 01111000 01100001 01101101 01110000 01101100 01100101):
+        </p>
+        <h3><b>How to Convert Binary to Text</b></h3>
+        <p>Convert binary ASCII code to text:</p>
+        <ul>
+            <li>Get binary byte</li>
+            <li>Convert binary byte to decimal</li>
+            <li>Get character of ASCII code from ASCII table</li>
+            <li>Continue with next byte</li>
+        </ul>
+    </div>
+
 </div>
