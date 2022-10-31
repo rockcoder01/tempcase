@@ -20,6 +20,8 @@ import { NgxCopyToClipboardModule } from 'ngx-copy-to-clipboard';
 import { WideTextConvertorComponent } from './component/wide-text-convertor/wide-text-convertor.component';
 import { StringToBinaryComponent } from './component/string-to-binary/string-to-binary.component';
 import { StringJsonStringfyComponent } from './component/string-json-stringfy/string-json-stringfy.component';
+import { PagenotfoundComponentComponent } from './component/pagenotfound-component/pagenotfound-component.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { StringJsonStringfyComponent } from './component/string-json-stringfy/st
     TextCaseConvertComponent,
     WideTextConvertorComponent,
     StringToBinaryComponent,
-    StringJsonStringfyComponent
+    StringJsonStringfyComponent,
+    PagenotfoundComponentComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

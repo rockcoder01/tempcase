@@ -1,6 +1,5 @@
 <div class="container">
-    <h1 class="mt-4 font-weight-bold">String to Binary</h1>
- <p>https://www.rapidtables.com/convert/number/binary-to-ascii.html</p>
+    <h1 class="mt-4 font-weight-bold">text to binary translator</h1>
     <div class="row">
         <div class="col-md-6">
             <form class="example-form mt-4">
@@ -23,62 +22,38 @@
                 </mat-form-field>
             </form>
             <div class="alert alert-success" *ngIf="formateType" role="alert">
-                text convertcase successfully to - {{formateType}}      
+                text convertcase successfully to - {{formateType}}
             </div>
-            <button  mat-flat-button class="mx-1 my-1" color="primary"  (click)="copyClipBoard()">Copy clipboard</button>
+            <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
             <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
         </div>
     </div>
 
     <hr>
     <div class="p-4">
-        <h1><b>sentence case:</b></h1>
+        <h3><b>Introduction:</b></h3>
         <p class="pragraph-font">
-            sentence converter is an online text and word processing utility it’s helps to you to allow any text you
-            would like to select and transforming into fully structured sentence
+            Considering the optimum use of binary digits and the huge time to convert an English text to binary codes,
+            we have incorporated this feature into our tool. When you convert any text into binary you will get outputs
+            into 0 and 1.
         </p>
-    </div>
 
-    <div class="p-4">
-        <h2><b>lower case:</b></h2>
-        <p class="pragraph-font">
-            for those who wants to uncapitalised there text this lowercase would be very helpful for them it’s helps to
-            transforming selected text to lower case as well as converting i’s into l’s.
-        </p>
-    </div>
+        <p>
+            <b> Example- The output of "ROSE" is 01010010 01101111 01110011 01100101</b>
+        </p><br>
 
-    <div class="p-4">
-        <h3><b>Upper case:</b></h3>
+        <h4>What is binary?</h4>
         <p class="pragraph-font">
-            this would be helpful for Converting or transform the selected text from lower case to capital letter(upper
-            case)
-            Or lower case to lower case.
+            Binary is a computer language that contains two digits only 1 and 0. Binary is one of the best ways to
+            control the logic circuit. In binary 0 and 1 represent OFF and ON. Computers use binary code to store all
+            types of information.
         </p>
-    </div>
 
-    <div class="p-4">
-        <h4><b>Capitalisation case:</b></h4>
-        <p class="pragraph-font">
-            its helps in converting with its first letter in uppercase and the remaining letters in lowercase.
-            Capitalisation is vary by language and are often quite complex, but in most modern languages that have
-            capitalisation, the first word of every sentence is capitalised, as are all proper nouns.
-        </p>
+        <h4><b>How to convert text into binary?</b></h4>
+        <ul>
+            <li>First, you need to type or paste the texts you want to convert into the text box</li>
+            <li>Get ASCII code of the letters from the ASCII table</li>
+            <li>Convert the decimal to the binary byte</li>
+            <li>And you will get your output</li>
+        </ul>
     </div>
-
-    <div class="p-4">
-        <h3><b>Alternating case:</b></h3>
-        <p class="pragraph-font">
-            The alternating case converter converts text, so as a result the initial letter is a capital one and from
-            there on the cases alternate between uppercase and lowercase. For this, a text needs to be entered into the
-            form. Alternating case writing is particularly common on the Internet.
-        </p>
-    </div>
-
-    <div class="p-4">
-        <h4><b>Title case:</b></h4>
-        <p class="pragraph-font">
-            In title case, major words are capitalized, and most minor words are lowercase. In sentence case, most major
-            and minor words are lowercase (proper nouns are an exception in that they are always capitalized).
-        </p>
-    </div>
-</div>

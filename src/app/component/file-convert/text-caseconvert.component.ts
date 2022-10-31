@@ -29,7 +29,11 @@ export class TextCaseConvertComponent implements OnInit {
 
   textValue: string = '';
   changeTextValue: string = '';
-  formateType:string = ''
+  formateType:string = '';
+  words = 0;
+  sentences = 0;
+  paragraphs = 0;
+
   options = {
     splitRegexp: /([a-z])([A-Z0-9])/g
   };
@@ -49,55 +53,52 @@ export class TextCaseConvertComponent implements OnInit {
 
       switch (type) {
         case "upperCase":
-          this.changeTextValue = this.textValue ? upperCase(this.textValue) : ''
+           this.textValue = this.textValue ? upperCase(this.textValue) : ''
           break;
         case "camelCase":
-          this.changeTextValue = this.textValue ? camelCase(this.textValue) : ''
+           this.textValue = this.textValue ? camelCase(this.textValue) : ''
           break;
         case "pascalCase":
-          this.changeTextValue = this.textValue ? pascalCase(this.textValue) : ''
+           this.textValue = this.textValue ? pascalCase(this.textValue) : ''
           break;
         case "capitalCase":
-          this.changeTextValue = this.textValue ? capitalCase(this.textValue) : ''
+           this.textValue = this.textValue ? capitalCase(this.textValue) : ''
           break;
         case "headerCase":
-          this.changeTextValue = this.textValue ? headerCase(this.textValue) : ''
+           this.textValue = this.textValue ? headerCase(this.textValue) : ''
           break;
         case "titleCase":
-          this.changeTextValue = this.textValue ? titleCase(this.textValue) : ''
+           this.textValue = this.textValue ? this.textValue.toLowerCase().replace(/\b(\w)/g, s => s.toUpperCase()) : ''
           break;
         case "pathCase":
-          this.changeTextValue = this.textValue ? pathCase(this.textValue) : ''
+           this.textValue = this.textValue ? pathCase(this.textValue) : ''
           break;
         case "snakeCase":
-          this.changeTextValue = this.textValue ? snakeCase(this.textValue) : ''
+           this.textValue = this.textValue ? snakeCase(this.textValue) : ''
           break;
         case "paramCase":
-          this.changeTextValue = this.textValue ? paramCase(this.textValue) : ''
+           this.textValue = this.textValue ? paramCase(this.textValue) : ''
           break;
         case "dotCase":
-          this.changeTextValue = this.textValue ? dotCase(this.textValue) : ''
+           this.textValue = this.textValue ? dotCase(this.textValue) : ''
           break;
         case "alternateCase":
-          this.changeTextValue = this.textValue ? this.alternateCase(this.textValue) : ''
+           this.textValue = this.textValue ? this.alternateCase(this.textValue) : ''
           break;
         case "constantCase":
-          this.changeTextValue = this.textValue ? constantCase(this.textValue) : ''
+           this.textValue = this.textValue ? constantCase(this.textValue) : ''
           break;
         case "lowerCase":
-          this.changeTextValue = this.textValue ? lowerCase(this.textValue) : ''
+           this.textValue = this.textValue ? lowerCase(this.textValue) : ''
           break;
         case "lowerCaseFirst":
-          this.changeTextValue = this.textValue ? lowerCaseFirst(this.textValue) : ''
-          break;
-        case "upperCaseFirst":
-          this.changeTextValue = this.textValue ? upperCaseFirst(this.textValue) : ''
+           this.textValue = this.textValue ? lowerCaseFirst(this.textValue) : ''
           break;
         case "swapCase":
-          this.changeTextValue = this.textValue ? swapCase(this.textValue) : ''
+           this.textValue = this.textValue ? swapCase(this.textValue) : ''
           break;
         case "sentenceCase":
-          this.changeTextValue = this.textValue ? sentenceCase(this.textValue) : ''
+           this.textValue = this.textValue ? sentenceCase(this.textValue) : ''
           break;
         default:
           alert('Default case');
@@ -107,16 +108,22 @@ export class TextCaseConvertComponent implements OnInit {
         this.formateType = ''
       }, 5000);
     }
-    console.log('d', this.changeTextValue)
+  }
+
+  modelChangeFn(value:string){
+       this.words =  (this.textValue.length) ? this.textValue.split(/\s+/).length : 0;
+       this.sentences = (this.textValue.length) ?  this.textValue.split(/[.?!][ "\n]/).length :0;
+       this.paragraphs = (this.textValue.length) ?  this.textValue.split(/\n/).length :0;
+
   }
 
   createFile() {
-    var blob = new Blob([this.changeTextValue], { type: 'text/plain;charset=utf-8' })
+    var blob = new Blob([this.textValue], { type: 'text/plain;charset=utf-8' })
     saveAs(blob)
   }
 
   copyClipBoard(){
-    navigator.clipboard.writeText(this.changeTextValue).then().catch(e => console.error(e));
+    navigator.clipboard.writeText(this.textValue).then().catch(e => console.error(e));
   }
 
   alternateCase(textsentence: String) {

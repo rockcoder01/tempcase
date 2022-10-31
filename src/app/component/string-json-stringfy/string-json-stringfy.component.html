@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="mt-4 font-weight-bold">String TO JSON Stringify</h1>
+    <h1 class="mt-4 font-weight-bold">string to JSON stringify converter</h1>
     <div class="row">
         <div class="col-md-6">
             <form class="example-form mt-4">
@@ -23,62 +23,42 @@
             </form>
 
             <div class="alert alert-success" *ngIf="formateType" role="alert">
-                text convertcase successfully to - {{formateType}}      
+                text convertcase successfully to - {{formateType}}
             </div>
-            <button  mat-flat-button class="mx-1 my-1" color="primary"  (click)="copyClipBoard()">Copy clipboard</button>
+            <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
             <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
         </div>
     </div>
 
     <hr>
-    <div class="p-4">
-        <h3><b>sentence case:</b></h3>
-        <p class="pragraph-font">
-            sentence converter is an online text and word processing utility it’s helps to you to allow any text you
-            would like to select and transforming into fully structured sentence
-        </p>
-    </div>
 
     <div class="p-4">
-        <h2><b>lower case:</b></h2>
+        <h3><b>Introduction:</b></h3>
         <p class="pragraph-font">
-            for those who wants to uncapitalised there text this lowercase would be very helpful for them it’s helps to
-            transforming selected text to lower case as well as converting i’s into l’s.
+            Sometimes we get most of the data in JSON String format, not in XML format. As it is very difficult to deal
+            with JSON String we have added this feature to our text converter tool to retrieve the value. To save your
+            time this feature corrects the format of the texts to get a straight value. As the string is a very crucial
+            element for web developers to exchange data between several computers, it takes huge time to manually
+            convert the piece. And moreover, you won't be sure if your conversation is accurate or not.
         </p>
-    </div>
 
-    <div class="p-4">
-        <h3><b>Upper case:</b></h3>
-        <p class="pragraph-font">
-            this would be helpful for Converting or transform the selected text from lower case to capital letter(upper
-            case)
-            Or lower case to lower case.
-        </p>
-    </div>
+        <h4><b>How does it work?</b></h4>
+        <ul>
+            <li class="pragraph-font">
+                Start typing or you can copy any text as per your need and paste it into the text box.
+            </li>
+            <li class="pragraph-font">
+                Tap on the "string to JSON stringify" option
+            </li>
+            <li class="pragraph-font">
+                You will get your output
+            </li>
+        </ul>
 
-    <div class="p-4">
-        <h4><b>Capitalisation case:</b></h4>
         <p class="pragraph-font">
-            its helps in converting with its first letter in uppercase and the remaining letters in lowercase.
-            Capitalisation is vary by language and are often quite complex, but in most modern languages that have
-            capitalisation, the first word of every sentence is capitalised, as are all proper nouns.
-        </p>
-    </div>
-
-    <div class="p-4">
-        <h3><b>Alternating case:</b></h3>
-        <p class="pragraph-font">
-            The alternating case converter converts text, so as a result the initial letter is a capital one and from
-            there on the cases alternate between uppercase and lowercase. For this, a text needs to be entered into the
-            form. Alternating case writing is particularly common on the Internet.
-        </p>
-    </div>
-
-    <div class="p-4">
-        <h4><b>Title case:</b></h4>
-        <p class="pragraph-font">
-            In title case, major words are capitalized, and most minor words are lowercase. In sentence case, most major
-            and minor words are lowercase (proper nouns are an exception in that they are always capitalized).
+            <b>Note:</b>
+            To check if your text is successfully converted or not if there is a new line it gets the /n symbol and the
+            tab being converted to /t symbols
         </p>
     </div>
 </div>
