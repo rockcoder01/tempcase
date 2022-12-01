@@ -1,0 +1,500 @@
+<div class="container">
+    <h1 class="mt-5"><b>ConvertCase With Word Counter</b></h1>
+
+    <div class="output row">
+        <div>Characters:
+            <span id="characterCount" ng-if="text.length > 0">{{textValue.length}}</span>
+        </div>
+        <div>Words: <span id="wordCount">{{ words }}</span></div>
+    </div>
+    <div class="output row">
+        <div>Sentences: <span id="sentenceCount">{{ sentences }}</span></div>
+        <div>Paragraphs: <span id="paragraphCount">{{ paragraphs }}</span></div>
+    </div>
+
+
+    <div class="row">
+
+
+        <div class="col-md-12">
+            <form class="example-form mt-4">
+                <label>Enter Text</label>
+                <div style="float:right">
+                    <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">
+                        <i class="fa fa-clipboard p-1" style="font-size:24px;"></i>
+                        Copy clipboard</button>
+                    <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary"> <i
+                            class="fa fa-save p-1" style="font-size:24px"></i>Create File</button>
+                </div>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter Text</mat-label>
+                    <textarea matInput rows="15" [(ngModel)]="textValue" (ngModelChange)="modelChangeFn($event)"
+                        name="Hello World" placeholder="Ex. Hello Word"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+            <div class="alert alert-success" *ngIf="formateType" role="alert">
+                convertcase successfully to - {{formateType}}
+            </div>
+            <div class="row">
+                <button mat-flat-button (click)="upperCase('upperCase')" class="mx-1 my-1" color="primary">UpperCase
+                    convert</button>
+                <button mat-flat-button (click)="upperCase('titleCase')" class="mx-1 my-1" color="primary">titleCase
+                    convert</button>
+                <button mat-flat-button (click)="upperCase('lowerCase')" class="mx-1 my-1" color="primary">lowerCase
+                    convert</button>
+                <button mat-flat-button (click)="upperCase('lowerCaseFirst')" class="mx-1 my-1"
+                    color="primary">lowerCaseFirst convert</button>
+                <button mat-flat-button (click)="upperCase('sentenceCase')" class="mx-1 my-1"
+                    color="primary">sentenceCase convert</button>
+                <button mat-flat-button (click)="upperCase('camelCase')" class="mx-1 my-1" color="accent">camelCase
+                    convert</button>
+                <button mat-flat-button (click)="upperCase('pascalCase')" class="mx-1 my-1" color="warn">pascalCase
+                    convert</button>
+                <button mat-flat-button (click)="upperCase('pathCase')" class="mx-1 my-1" color="accent">pathCase
+                    convert</button>
+                <button mat-flat-button (click)="upperCase('snakeCase')" class="mx-1 my-1" color="accent">snakeCase
+                    convert</button>
+                <button mat-flat-button (click)="upperCase('paramCase')" class="mx-1 my-1" color="primary">paramCase
+                    convert</button>
+                <button mat-flat-button (click)="upperCase('dotCase')" class="mx-1 my-1" color="warn">dotCase</button>
+                <button mat-flat-button (click)="upperCase('alternateCase')" class="mx-1 my-1" color="warn">aLtErNaTiNg
+                    cAsE</button>
+                <button mat-flat-button (click)="upperCase('constantCase')" class="mx-1 my-1"
+                    color="primary">constantCase convert</button>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="p-4">
+        <h2><b>Introduction:</b></h2>
+        <p class="pragraph-font">
+            Everyone while writing any stuff or editing stuck on converting the cases of the words or phrases and to
+            correct those things they either do that manually or opt for any random software or tools online. Some of
+            the tools are not efficient enough or don't have the extensive features that an ideal convertcase tool
+            should
+            have. And for these reasons, people waste a great portion of time while changing the cases of their works.
+            To ease their trouble we have preciously designed this online convertcase tool that easily transforms the
+            case of your texts within an eye’s blink. All you need to do is copy the text and paste it into the tool and
+            boom! after selecting the case your text is ready. We understand when you write in a flow, you can not focus
+            on its cases.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h2><b>Word Counter:</b></h2>
+        <h3><b>What is a word counter?</b></h3>
+
+        <p class="pragraph-font">
+            While writing a piece of content it is impossible to track the word counts every time. But, as writers need
+            to follow minimum or maximum word counts while preparing content and to make sure they get every solution
+            related to writing, we have incorporated this feature into our text converter tool.
+        </p>
+        <h3><b>How to Find Out Word Count?</b></h3>
+        <p class="pragraph-font">
+            To find out the word count, simply start typing into the text. You will see the number of words and increase
+            or decrease them according to your need. If you are already typed your content on MS Word or Google Docs, we
+            got you covered. You can simply copy the text and paste it into the text area to see the number of words.
+            The feature is not limited here, you can even check out the number of characters even.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h2><b>Sentence Case Convert:</b></h2>
+        <p class="pragraph-font">
+            Sentence case which is also known as down style or reference style is a type of capitalization style. The
+            use of sentence cases can be widely found in academic and professional works. Sentence case capitalizes the
+            first letter of the first word in the title. The rest of the letters and words in the title is lowercased
+            unless they are proper nouns.
+        </p>
+        <p class="pragraph-font">
+            <b>Example- - The best hotel in Delhi, The story of Mahatma Gandhi</b>
+        </p>
+        <h4><b><u>What is the difference between Sentence Case And Title Case?</u></b></h4>
+        <p class="pragraph-font">
+            In the sentence case, we mentioned above, it capitalizes the first letter of the very first word in the
+            title. The rest of the words in the title are not capitalized.
+        </p>
+        <p class="pragraph-font">
+            But the title case works differently. The first letter of each word in the title should be capitalized
+            except as we also mentioned above, prepositions, articles, and conjunctions like “an,” “but,” “the”, “and”,
+            “of.” etc should be in lowercase. Generally, most of the letter of words in the title case converts into
+            uppercase.
+        </p>
+        <h4><b>How to ConvertCase to Sentence Case:</b></h4>
+        <ul>
+            <li class="pragraph-font">
+                Copy the phrase or text of your writing you want to convertcase
+            </li>
+            <li class="pragraph-font">
+                After copying open our tool
+            </li>
+            <li class="pragraph-font">
+                Paste the copied texts into the given text area
+            </li>
+            <li class="pragraph-font">
+                Tap on the “Sentence Case” section
+            </li>
+            <li class="pragraph-font">
+                And You will get your output on convertcase
+            </li>
+        </ul>
+    </div>
+
+    <div class="p-4">
+        <h2><b>Upper Case to Lower Case generator online:</b></h2>
+        <p class="pragraph-font">
+            If you are struggling to convert your text into lowercase, we got you covered. Few companies use lowercase
+            letters for their logo because people believe lowercase letters virtually look better than UPPERCASE. It
+            maintains the continuity of the writing also.
+        </p>
+        <p class="pragraph-font">
+            <b>Example- jerry wants to start the investment as early as possible.</b>
+        </p>
+
+        <h4><b>How To ConvertCase Using convert To Lowercase:</b></h4>
+        <ul>
+            <li class="pragraph-font">
+                Copy the phrase or text of your writing you want to case convert into lower case
+            </li>
+            <li class="pragraph-font">
+                After copying , open our tool
+            </li>
+            <li class="pragraph-font">
+                Paste the copied texts into the given text area
+            </li>
+            <li class="pragraph-font">
+                Tap on the “lowercase” section
+            </li>
+            <li class="pragraph-font">
+                And you will get your output on convertcase
+            </li>
+        </ul>
+    </div>
+
+    <div class="p-4">
+        <h2><b>Upper Case Convert:</b></h2>
+        <p class="pragraph-font">
+            When a writer wants to emphasize a phrase or word he or she uses UPPERCASE or ALL CAPS words. And of course,
+            we understand, how much it is challenging to turn on or off the cap button every time while writing. And for
+            this, we have added this feature to our tool. This feature converts the total phrase or word which is in any
+            case into UPPERCASE within a second.
+        </p>
+        <p class="pragraph-font">
+            <b>Example- THE USE OF SOCIAL MEDIA PLATFORMS ARE RAPIDLY BOOMING</b>
+        </p>
+
+        <h4><b>How to convertcase tool using convert to uppercase:</b></h4>
+        <ul>
+            <li class="pragraph-font">
+                Copy the phrase or text of your writing you want to convertcase
+            </li>
+            <li class="pragraph-font">
+                After copying open our tool
+            </li>
+            <li class="pragraph-font">
+                Paste the copied texts into the given text area
+            </li>
+            <li class="pragraph-font">
+                Tap on the “UPPER CASE” section
+            </li>
+            <li class="pragraph-font">
+                And ta-da! You got your output on convertcase
+            </li>
+        </ul>
+    </div>
+
+    <div class="p-4">
+        <h2><b>capitalization convert case:</b></h2>
+        <p class="pragraph-font">
+            Capitalization converts the first letter of a word into uppercase and lowercase the rest letters.
+            Capitalization may look like a title case, however, there is a tiny difference. As we already mentioned
+            above, the title case doesn't convert prepositions, articles and conjunctions whereas, capitalization
+            converts every first letter of a word.
+        </p>
+
+        <p class="pragraph-font">
+            <b>Example- The Future Of 5g Technology</b>
+        </p>
+
+        <h4><b>How to convertcase using convert to Capitalization:</b></h4>
+        <ul>
+            <li class="pragraph-font">
+                Copy the phrase or text of your writing you want to convert case into Capitalization
+            </li>
+            <li class="pragraph-font">
+                After copying , open our tool
+            </li>
+            <li class="pragraph-font">
+                Paste the copied texts into the given text area
+            </li>
+            <li class="pragraph-font">
+                Tap on the “Capitalization” section
+            </li>
+            <li class="pragraph-font">
+                And you will get your output on convert case
+            </li>
+        </ul>
+    </div>
+
+    <div class="p-4">
+        <h2><b>Alternating ConvertCase:</b></h2>
+        <p class="pragraph-font">
+            The alternate case feature will help you convert your text into alternate upper case and lower case letters,
+            the first letter turns into an upper case letter followed by the lowercase second letter, then again
+            uppercase third letter and so on. This type of case style is used to bring the attention of the readers to a
+            specific text or phrase or to highlight a part of a written document.
+        </p>
+        <p class="pragraph-font">
+            <b>Example- ArTiFiCiAl InTeLiGeNcE</b>
+        </p>
+
+        <h4><b>How to change text convertcase using convert to alternate case:</b></h4>
+        <ul>
+            <li class="pragraph-font">
+                Copy the text you want to convert case into an alternate case.
+            </li>
+            <li class="pragraph-font">
+                Once you are done with copying open our tool
+            </li>
+            <li class="pragraph-font">
+                Paste the copied text into the provided text area
+            </li>
+            <li class="pragraph-font">
+                Tap on the “aLtErNaTe cAsE” section
+            </li>
+            <li class="pragraph-font">
+                And you will get your output on convert case
+            </li>
+        </ul>
+    </div>
+
+    <div class="p-4">
+        <h2><b>Title Case Convert:</b></h2>
+
+        <h3><b>What is a title case?:</b></h3>
+        <p class="pragraph-font">
+            Title case basically a style that has been extensively used in Books, Newspapers, Blogs, and Articles to
+            make the titles or headlines. It gives a professional and eye-catching look. As almost every people buy a
+            book or goes through content by checking its titles only. Isn't it? Then you should focus on building a
+            clean and proper title case. And for this, you can take help from this title case convert tool.
+        </p>
+
+        <p class="pragraph-font">
+            In short, in the title case, for each word in the sentence, the first alphabet convert case into uppercase
+            while
+            for the rest of the alphabets of the word turns into lower case. However, there are some exceptions. The
+            title case does not cover.
+        </p>
+
+        <ul>
+            <li class="pragraph-font">
+                Articles ( a, an and the)
+            </li>
+            <li class="pragraph-font">
+                Conjunctions ( but, and, or etc)
+            </li>
+            <li class="pragraph-font">
+                Prepositions ( in, for, on, up)
+            </li>
+        </ul>
+
+        <p class="pragraph-font">
+            However, it may seem easy to create a title case but actually, it is not. Many words are used in various
+            grammatical functions. For example, “You Are Financially Dependent on Me”- on is used as a preposition in
+            the phrase and must be lowercased, but When we use “ Please Carry On the Conversation”- the same on is used
+            as an adjective and so the first alphabet must be capitalized.
+        </p>
+
+        <h3><b>How To Work Title Case Convert:</b></h3>
+        <p class="pragraph-font">
+            <b><i><u>
+                        To convertcase any text into a title case with the help of our tool, you need to follow some
+                        basic
+                        steps
+                        which are mentioned below:
+                    </u></i></b>
+        </p>
+        <ul>
+            <li class="pragraph-font">
+                Copy the text you want to convertcase
+            </li>
+            <li class="pragraph-font">
+                Paste it into the text are
+            </li>
+            <li class="pragraph-font">
+                Click on the title case button
+            </li>
+            <li class="pragraph-font">
+                And get your out put in a second
+            </li>
+            <li class="pragraph-font">
+                And get your output in a second
+            </li>
+            <li class="pragraph-font">
+                Copy the output and use it as per your requirements
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="p-4">
+        <h3><a routerLink="/json-stringify-text"><b>String TO JSON Stringify Converter</b></a></h3>
+        <p class="pragraph-font">
+            The aim of JSON stratify text is to correcting formatting for stratified text it’s very helpful in saving
+            time.
+            How it works: simply we need to do that is go on writing on left hand panel automatically the stratified
+            text will be available for you in right hand panel then you can simply copy and paste that across
+            After this you need to check out whether there is any new lines these get the /n symbols generated as well
+            as tabs being converted to /t symbols after this let us the know the reconditions and other feedback this
+            can help us to improve our tool.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h2><a routerLink="/snake-case-converter"><b>Snake Case Converter Tool Online</b></a></h2>
+        <p class="pragraph-font">
+            snake case mostly mostly use for naming Conversation in computing world, like. define varible, subroutine
+            name and create some.
+            EX. snake_case
+            snake case refere style which two word between space replace in underscore (_)
+            snake case first latter are small it's simular with camelCase.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h3><a routerLink="/bindarycode-to-english-translator"><b>Binary to Text Translator Converter:</b></a></h3>
+        <p class="pragraph-font">
+            it's tool help you to convert binary to English and English to binary.when you convert english to binary
+            when return only
+            0 and 1. the 0 and 1 binary represent On and off,"0" represents no flow of electricity, and "1" represents
+            electricity being allowed to flow.
+        </p>
+
+        <p>
+            (E.g: 01000101 01111000 01100001 01101101 01110000 01101100 01100101):
+        </p><br>
+
+        <p class="pragraph-font">
+            it is one of the oldest having a long and diverse history used by all most all
+            computing languages right now in this world. By using binary code which this language can only be understood
+            by machines. this will help in converting your text into binary code also helps in improving a good
+            stylistic change to utterly transform the different look and style of the text you have selected
+            when we want to maintain some secrete or hidden text messages this binary code will help in this situation.
+            which is the easiest and simplest way.
+            it helps in translating ASCII to binary code just by using a translation tool it can speed up the entire
+            experience.
+        </p>
+
+        <h3><b>How to Convert Binary to Text</b></h3>
+        <p>Convert binary ASCII code to text:</p>
+        <ul>
+            <li>Get binary byte</li>
+            <li>Convert binary byte to decimal</li>
+            <li>Get character of ASCII code from ASCII table</li>
+            <li>Continue with next byte</li>
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Search Result ConvertCase</h2>
+    <ul class="tags">
+        <li><p class="tag">in capital letter</p></li>
+        <li><p class="tag">capitalise letter</p></li>
+        <li><p class="tag">from uppercase to lowercase</p></li>
+        <li><p class="tag">upper lower case</p></li>
+        <li><p class="tag">lowercase</p></li>
+        <li><p class="tag">case lower</p></li>
+        <li><p class="tag">upper case lower case</p></li>
+        <li><p class="tag">upper case to lower case</p></li>
+        <li><p class="tag">upper to lowercase</p></li>
+        <li><p class="tag">uppercase lowercase</p></li>
+        <li><p class="tag">case upperr</p></li>
+        <li><p class="tag">case change</p></li>
+        <li><p class="tag">case changer</p></li>
+        <li><p class="tag">uppercase lowercase converter</p></li>
+        <li><p class="tag">upper case lower case converter</p></li>
+        <li><p class="tag">upper case converter</p></li>
+        <li><p class="tag">text capitalizer</p></li>
+        <li><p class="tag">uppercase conversion</p></li>
+        <li><p class="tag">caps to lowercase</p></li>
+        <li><p class="tag">upper case</p></li>
+        <li><p class="tag">lowercase convert</p></li>
+        <li><p class="tag">uppercase convert</p></li>
+        <li><p class="tag">lowercase to caps</p></li>
+        <li><p class="tag">convert to all caps</p></li>
+        <li><p class="tag">all caps converter</p></li>
+        <li><p class="tag">crossing out text</p></li>
+        <li><p class="tag">convert to caps</p></li>
+        <li><p class="tag">all cap converter</p></li>
+        <li><p class="tag">allcaps converter</p></li>
+        <li><p class="tag">caps convert</p></li>
+        <li><p class="tag">caps converter</p></li>
+        <li><p class="tag">convert text</p></li>
+        <li><p class="tag">text converters</p></li>
+        <li><p class="tag">upper case letter</p></li>
+        <li><p class="tag">change case</p></li>
+        <li><p class="tag">letter uppercase</p></li>
+        <li><p class="tag">capitals to lowercase</p></li>
+        <li><p class="tag">all caps generator</p></li>
+        <li><p class="tag">uppercase to lowercase converter</p></li>
+        <li><p class="tag">upper lower case converter</p></li>
+        <li><p class="tag">lowercase to uppercase converter</p></li>
+        <li><p class="tag">lower case a</p></li>
+        <li><p class="tag">lowercase converter</p></li>
+        <li><p class="tag">capitalize text</p></li>
+        <li><p class="tag">text capitalize</p></li>
+        <li><p class="tag">convert to uppercase</p></li>
+        <li><p class="tag">convert to lowercase</p></li>
+        <li><p class="tag">convert lowercase to uppercase</p></li>
+        <li><p class="tag">convert uppercase to lowercase</p></li>
+        <li><p class="tag">to uppercase</p></li>
+        <li><p class="tag">invisible textr</p></li>
+        <li><p class="tag">to lowercase</p></li>
+        <li><p class="tag">cap generator</p></li>
+        <li><p class="tag">caps generator</p></li>
+        <li><p class="tag">casing online</p></li>
+        <li><p class="tag">transform text</p></li>
+        <li><p class="tag">sentence case converter</p></li>
+        <li><p class="tag">convert sentence case</p></li>
+        <li><p class="tag">convert to sentence case</p></li>
+        <li><p class="tag">capital to lowercase</p></li>
+        <li><p class="tag">crosses out text</p></li>
+        <li><p class="tag">upper case lettering</p></li>
+        <li><p class="tag">change word case</p></li>
+        <li><p class="tag">caps changer</p></li>
+        <li><p class="tag">text lowercase</p></li>
+        <li><p class="tag">capitalize generator</p></li>
+        <li><p class="tag">lowercase online</p></li>
+        <li><p class="tag">lowercase generator</p></li>
+        <li><p class="tag">tolower online</p></li>
+        <li><p class="tag">cap changer</p></li>
+        <li><p class="tag">case caps</p></li>
+        <li><p class="tag">caps to lowercase converter</p></li>
+        <li><p class="tag">online case converter</p></li>
+        <li><p class="tag">convert case online</p></li>
+        <li><p class="tag">to lowercase online</p></li>
+        <li><p class="tag">case converter online</p></li>
+        <li><p class="tag">convert to capital letters</p></li>
+        <li><p class="tag">text to caps</p></li>
+        <li><p class="tag">capital letter converter</p></li>
+        <li><p class="tag">upper and lowercase</p></li>
+        <li><p class="tag">text to lowercase</p></li>
+        <li><p class="tag">capital letters converter</p></li>
+        <li><p class="tag">to lower</p></li>
+        <li><p class="tag">caps change</p></li>
+        <li><p class="tag">lower to upper case</p></li>
+        <li><p class="tag">to lower case</p></li>
+        <li><p class="tag">capital to small letter</p></li>
+        <li><p class="tag">online uppercase</p></li>
+        <li><p class="tag">cap lock converter</p></li>
+        <li><p class="tag">lower case letters to uppercase</p></li>
+
+    </ul>
+</div>

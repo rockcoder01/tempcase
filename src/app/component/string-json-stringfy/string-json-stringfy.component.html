@@ -1,0 +1,64 @@
+<div class="container">
+    <h1 class="mt-4 font-weight-bold">string to JSON stringify converter</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter Text</mat-label>
+                    <textarea matInput rows="15" (keyup)="stringTobinary()" [(ngModel)]="textValue" name="textEnter"
+                        placeholder="Ex. Hello Word"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>JSON Stringify Text</mat-label>
+                    <textarea matInput rows="15" [(ngModel)]="changeTextValue" id="text-content-change"
+                        name="changetext" placeholder='Ex."Type or paste your content here" '></textarea>
+                </mat-form-field>
+            </form>
+
+            <div class="alert alert-success" *ngIf="formateType" role="alert">
+                text convertcase successfully to - {{formateType}}
+            </div>
+            <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
+            <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="p-4">
+        <h3><b>Introduction:</b></h3>
+        <p class="pragraph-font">
+            Sometimes we get most of the data in JSON String format, not in XML format. As it is very difficult to deal
+            with JSON String we have added this feature to our text converter tool to retrieve the value. To save your
+            time this feature corrects the format of the texts to get a straight value. As the string is a very crucial
+            element for web developers to exchange data between several computers, it takes huge time to manually
+            convert the piece. And moreover, you won't be sure if your conversation is accurate or not.
+        </p>
+
+        <h4><b>How does it work?</b></h4>
+        <ul>
+            <li class="pragraph-font">
+                Start typing or you can copy any text as per your need and paste it into the text box.
+            </li>
+            <li class="pragraph-font">
+                Tap on the "string to JSON stringify" option
+            </li>
+            <li class="pragraph-font">
+                You will get your output
+            </li>
+        </ul>
+
+        <p class="pragraph-font">
+            <b>Note:</b>
+            To check if your text is successfully converted or not if there is a new line it gets the /n symbol and the
+            tab being converted to /t symbols
+        </p>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter Text</mat-label>
+                    <textarea matInput rows="15" (keyup)="changesWideText()" id="normalText" [(ngModel)]="textValue" name="textEnter"
+                        placeholder="Ex. Hello Word"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Updated Text</mat-label>
+                    <textarea matInput rows="15" [(ngModel)]="changeTextValue" class="stretched-text" id="text-content-change"
+                        name="changetext" placeholder="Ex. Hello Word"></textarea>
+                </mat-form-field>
+            </form>
+
+            <ngx-copy-to-clipboard class="copy-clipboard" target="#text-content-change" [action]="'cut'"
+                [success]="onSuccess" [error]="onError">Copy to clipboard
+            </ngx-copy-to-clipboard>
+            <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
+        </div>
+    </div>data-clipboard-target
+
+    <hr>
+    <div class="p-4">
+        <h1><b>sentence case:</b></h1>
+        <p class="pragraph-font">
+            sentence converter is an online text and word processing utility it’s helps to you to allow any text you
+            would like to select and transforming into fully structured sentence
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h2><b>lower case:</b></h2>
+        <p class="pragraph-font">
+            for those who wants to uncapitalised there text this lowercase would be very helpful for them it’s helps to
+            transforming selected text to lower case as well as converting i’s into l’s.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h3><b>Upper case:</b></h3>
+        <p class="pragraph-font">
+            this would be helpful for Converting or transform the selected text from lower case to capital letter(upper
+            case)
+            Or lower case to lower case.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h4><b>Capitalisation case:</b></h4>
+        <p class="pragraph-font">
+            its helps in converting with its first letter in uppercase and the remaining letters in lowercase.
+            Capitalisation is vary by language and are often quite complex, but in most modern languages that have
+            capitalisation, the first word of every sentence is capitalised, as are all proper nouns.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h3><b>Alternating case:</b></h3>
+        <p class="pragraph-font">
+            The alternating case converter converts text, so as a result the initial letter is a capital one and from
+            there on the cases alternate between uppercase and lowercase. For this, a text needs to be entered into the
+            form. Alternating case writing is particularly common on the Internet.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h4><b>Title case:</b></h4>
+        <p class="pragraph-font">
+            In title case, major words are capitalized, and most minor words are lowercase. In sentence case, most major
+            and minor words are lowercase (proper nouns are an exception in that they are always capitalized).
+        </p>
+    </div>
+</div>

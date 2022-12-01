@@ -1,0 +1,60 @@
+<div class="container">
+    <h1 class="mt-4 font-weight-bold">text to binary translator</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter Text</mat-label>
+                    <textarea matInput rows="15" (keyup)="stringTobinary()" [(ngModel)]="textValue" name="textEnter"
+                        placeholder="Ex. Hello Word"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>binary code</mat-label>
+                    <textarea matInput rows="15" [(ngModel)]="changeTextValue" id="text-content-change"
+                        name="changetext" placeholder="Ex.1101000 1100101 1101100 1101100 1101111 100000"></textarea>
+                </mat-form-field>
+            </form>
+            <div class="alert alert-success" *ngIf="formateType" role="alert">
+                text convertcase successfully to - {{formateType}}
+            </div>
+            <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
+            <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
+        </div>
+    </div>
+
+    <hr>
+    <div class="p-4">
+        <h2>Binary to English translator tool</h2>
+        <h3><b>Introduction:</b></h3>
+        <p class="pragraph-font">
+            Considering the optimum use of binary digits and the huge time to convert an English text to binary codes,
+            we have incorporated this feature into our tool. When you convert any text into binary you will get outputs
+            into 0 and 1.
+        </p>
+
+        <p>
+            <b> Example- The output of "ROSE" is 01010010 01101111 01110011 01100101</b>
+        </p><br>
+
+        <h4>What is binary?</h4>
+        <p class="pragraph-font">
+            Binary is a computer language that contains two digits only 1 and 0. Binary is one of the best ways to
+            control the logic circuit. In binary 0 and 1 represent OFF and ON. Computers use binary code to store all
+            types of information.
+        </p>
+
+        <h4><b>How to convert text into binary?</b></h4>
+        <ul>
+            <li>First, you need to type or paste the texts you want to convert into the text box</li>
+            <li>Get ASCII code of the letters from the ASCII table</li>
+            <li>Convert the decimal to the binary byte</li>
+            <li>And you will get your output</li>
+        </ul>
+    </div>
