@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <h1 class="mt-4 font-weight-bold">Sentence Case converter</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Type or Paste Your Content Here</mat-label>
+                    <textarea matInput rows="15" (keyup)="sentenceCase()" [(ngModel)]="textValue" name="textEnter"
+                        placeholder="Ex. Hello Word"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Output Sentence Case Converter</mat-label>
+                    <textarea matInput rows="15" [(ngModel)]="changeTextValue" id="text-content-change"
+                        name="changetext" placeholder="Enter Title Case"></textarea>
+                </mat-form-field>
+            </form>
+            <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
+            <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
+        </div>
+    </div>
+
+    <hr>
+    <div class="p-4">
+        <h2><b>Sentence Case converter overview</b></h2>
+        <h3><b>Introduction:</b></h3>
+        <p class="pragraph-font">
+            Sentence case refers to capitalization style. It is also called reference style or down style. Sentence case is essential in professional and academic works. Whenever you select conversion of your content into sentence case, it capitalizes only the first alphabet of the first word in the title. The remaining typed content remains in lowercase except for proper nouns.
+        </p>
+
+        <p class="pragraph-font">
+            For instance – The best conversion tool is convertcase, The story of Mahatma Gandhi.
+        </p>
+        <h3><b>Difference Between Sentence case converter and Title case converter:</b></h3>
+        <p class="pragraph-font">
+            In sentence case, only the first alphabet of the first word is capitalized, and the remaining words become unchanged as it is in the title.
+        </p>
+
+        <p class="pragraph-font">
+            However, on the contrary, in the title case, the first alphabet of each word is capitalized in the text except for conjunctions, prepositions, and articles such as a, an, the, and, but, and of. All these exceptions remain in lowercase if they come in the middle of the sentence.
+        </p>
+        <h3><b>How to convert content into a Sentence Case using Sentence Case Converter ?</b></h3>
+        <ul>
+            <li>First, copy the content which you want to convert into sentence cases</li>
+            <li>After copying the content, open the Sentence Case Converter tool.</li>
+            <li>Paste the copied content into the Sentence Case Converter.</li>
+            <li>Select the “Sentence Case” section for the conversion</li>
+            <li>As soon as you select the section, the desired result will be obtained on right side of the sentence case converter tool.</li>
+        </ul>
+    
+    </div>

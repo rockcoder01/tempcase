@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <h1 class="mt-4 font-weight-bold">alternating case converter</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Type or Paste Your Content Here</mat-label>
+                    <textarea matInput rows="15" (keyup)="alternateCaseFun()" [(ngModel)]="textValue" name="textEnter"
+                        placeholder="Ex. Hello Word"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Output alternating case converter</mat-label>
+                    <textarea matInput rows="15" [(ngModel)]="changeTextValue" id="text-content-change"
+                        name="changetext" placeholder="output uppercase to lowercase"></textarea>
+                </mat-form-field>
+            </form>
+            <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
+            <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
+        </div>
+    </div>
+
+    <hr>
+    <div class="p-4">
+        <h2><b>alternating case converter</b></h2>
+        <h3><b>Introduction:</b></h3>
+        <p class="pragraph-font">
+            We implement an alternate case conversion feature that changes your content into alternate uppercase and
+            lowercase letters. In this feature, the first alphabet of each word turns into a capital letter, the second
+            alphabet of each word turns into a small letter, followed by a capital letter, and then a small letter. This
+            conversion goes on until all the alphabet have been converted as per the desired outcome. This feature has
+            been incorporated into our tool with a view to attracting readers to specific content.
+        </p>
+
+        <p class="pragraph-font">
+            Example – CoNvErT TeXt OnLiNe
+        </p>
+
+        <h3><b>alternating case conversion process using converter?</b></h3>
+        <ul>
+            <li>The content which has to be converted into alternating case needs to be copied.</li>
+            <li>After copying the content, open the alternating case Converter tool.</li>
+            <li>Paste the copied content into the alternating case Converter tool.</li>
+            <li>After alternating case Converter provide option create file so If you want to cerate file then Tap
+                Create File.</li>
+            <li>provide another option is copy clipboard so you can directly copy the content.</li>
+            <li>As soon as you select the section, the desired result will be obtained on convertcase</li>
+        </ul>
+
+    </div>

@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <h1 class="mt-4 font-weight-bold">Snake Case converter</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Type or Paste Your Content Here</mat-label>
+                    <textarea matInput rows="15" (keyup)="snakeCase()" [(ngModel)]="textValue" name="textEnter"
+                        placeholder="Ex. Hello Word"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Output Snake Case Converter</mat-label>
+                    <textarea matInput rows="15" [(ngModel)]="changeTextValue" id="text-content-change"
+                        name="changetext" placeholder="Enter Title Case"></textarea>
+                </mat-form-field>
+            </form>
+            <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
+            <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
+        </div>
+    </div>
+
+    <hr>
+    <div class="p-4">
+        <h2><b>Snake Case converter overview</b></h2>
+        <h3><b>Introduction:</b></h3>
+        <p class="pragraph-font">
+            Snake case is a writing style in which complex phrases or words have been separated by an underscore despite spaces. It is similar to the writing style of the camel case. The only difference is that the camel case does not separate words by spaces, while the snake case separates words by underscores. This writing style is convenient for writing variable names and file names of programming codes. You can also separate words in Wikipedia URLs so that people will easily identify what is written in them.
+        </p>
+
+        <h3><b>Basic Rules of Snake Case Capitalization Conversion in our snake case converter:</b></h3>
+        <ul>
+            <li>Snake Case converter tool removes all punctuation marks from the content.</li>
+            <li>Underscores are used in place of spaces to separate the words.</li>
+            <li>The content is transformed into a lowercase style using the snake case converter.</li>
+        </ul>
+        <h3><b>Examples of Snake Case Writing</b></h3>
+        
+        <ul>
+            <li>“Convertcase tool is the best snake case converter tool” converts into “Convertcase_tool_is_the_best_snake_case_converter_tool”.</li>
+            <li>“At snake case converter, you will easily convert text into snake case” transforms into “At_snake_case_converter_you_will_easily_convert_text_into_snake_case”.</li>
+        </ul>
+        <p class="pragraph-font">
+            The same process applies to other sentences, and the text will be changed to a snake case writing style easily using our snake case converter tool.
+        </p>
+        <h3>Snake Case converter Defined:</h3>
+
+        <p class="pragraph-font">
+            Snake case writing style, also stylized as snake_case, is another convention writing similar to the camel case style. An underscore symbol is used to replace all the spaces inserted between words used to separate them. In this style, even the first alphabet of the word is written in lowercase. You can use this writing style convention to name the files in the computer coding, and function names are also named in this convention.
+        </p>
+        <p class="pragraph-font">
+            Examples of a snake case style are: “hello_tool”, “programming_code”, and “online_tool”
+        </p>
+        <p class="pragraph-font">
+            Convertcase tool is the best snake case converter tool that online performs the function to change text into snake case. Programmers use this convention style in various programming languages. Python is a programming language that uses a snake case writing style in naming different variables, functions, and packages. Different programming languages use this convention for different functions. C++ makes use of this style for its standard library. However, on the contrary, PHP uses it for functions, while Perl uses it for lexical variables and subroutines.
+        </p>
+        <p class="pragraph-font">
+            Snake case and camel case styles both are at the opposite ends of the convention spectrum in naming variables. When you name a variable using multiple words, camel case joins all those words together to form one word. It removes all the white spaces in the sentence. On the contrary, the snake case writing convention uses an underscore to separate words instead of using white spaces. We do not insert spaces while naming variables in the programming language. Due to this reason, the snake case convention minimizes the shortcoming of enhancing the programmer’s readability while naming variables.
+        </p>
+        <!-- <ul>
+            <li>Copy the content you want to change into the title case and paste it into left side text area</li>
+            <li>After title case converter tool provide option create file so If you want to cerate file then Tap Create File.</li>
+            <li>Title case converter provide another option is copy clipboard so you can directly copy the content.</li>
+        </ul> -->
+    
+    </div>

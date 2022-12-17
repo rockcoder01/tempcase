@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <h1 class="mt-4 font-weight-bold">Title case converter</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Type or Paste Your Content Here</mat-label>
+                    <textarea matInput rows="15" (keyup)="upperCase()" [(ngModel)]="textValue" name="textEnter"
+                        placeholder="Ex. Hello Word"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Output Title Case Converter</mat-label>
+                    <textarea matInput rows="15" [(ngModel)]="changeTextValue" id="text-content-change"
+                        name="changetext" placeholder="Enter Title Case"></textarea>
+                </mat-form-field>
+            </form>
+            <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
+            <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
+        </div>
+    </div>
+
+    <hr>
+    <div class="p-4">
+        <h2><b>Title Case converter overview</b></h2>
+        <h3><b>Introduction:</b></h3>
+        <p class="pragraph-font">
+            You find the title case style in articles, newspapers, blogs, and books to make the headlines or titles catchy for the people. It is necessary to build a proper title case. For this, we help you to make the proper title case with our title case converter tool.
+        </p>
+
+        <p class="pragraph-font">
+            If you change the content into a title case, then the first letter of each word in the content turns into a capital letter, and all the alphabets remain in lowercase.
+        </p>
+        <h3><b>This feature does not transform our title case converter:</b></h3>
+        <ul>
+            <li>Prepositions like for, up, on, and in.</li>
+            <li>Articles like a, an, and the.</li>
+            <li>Conjunctions like and, or, but, etc.</li>
+        </ul>
+        <p class="pragraph-font">
+            <b>The conversion of content into a title case is easy to using title case converter, but the scenario is different for different situations. There are words that are used in various grammatical functions. Consider the examples:</b>
+        </p>
+        <ul>
+            <li>Chelsie Is Financially Dependent on His Parents.</li>
+            <li>Please Carry On Your Work.</li>
+        </ul>
+        <p class="pragraph-font">
+            Both examples have the word “on”. But in the first example, it is used as a preposition. For this reason, it is written in a small letter. However, on the contrary, in the second example, it is used as an adjective, and thus, the first alphabet must be in a capital letter.
+        </p>
+        <h2>To transform any content into a title case through our title case converter tool, some steps need to be followed by you to get the desired result, such as:</h2>
+        <ul>
+            <li>Copy the content you want to change into the title case and paste it into left side text area</li>
+            <li>After title case converter tool provide option create file so If you want to cerate file then Tap Create File.</li>
+            <li>Title case converter provide another option is copy clipboard so you can directly copy the content.</li>
+        </ul>
+    
+    </div>

@@ -24,6 +24,12 @@ import { PagenotfoundComponentComponent } from './component/pagenotfound-compone
 import { FooterComponent } from './component/footer/footer.component';
 import { FontGenaratorComponent } from './component/font-genarator/font-genarator.component';
 import { MetaService } from './service/meta-service.service';
+import { TitleCaseConverterComponent } from './component/title-case-converter/title-case-converter.component';
+import { UppercaseToLowercaseComponent } from './component/uppercase-to-lowercase/uppercase-to-lowercase.component';
+import { LowercaseToUppercaseComponent } from './component/lowercase-to-uppercase/lowercase-to-uppercase.component';
+import { AlternatingCaseConverterComponent } from './component/alternating-case-converter/alternating-case-converter.component';
+import { SentenceCaseConvertertComponent } from './component/sentence-case-convertert/sentence-case-convertert.component';
+import { SnakeCaseConverterComponent } from './component/snake-case-converter/snake-case-converter.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,13 @@ import { MetaService } from './service/meta-service.service';
     StringJsonStringfyComponent,
     PagenotfoundComponentComponent,
     FooterComponent,
-    FontGenaratorComponent
+    FontGenaratorComponent,
+    TitleCaseConverterComponent,
+    UppercaseToLowercaseComponent,
+    LowercaseToUppercaseComponent,
+    AlternatingCaseConverterComponent,
+    SentenceCaseConvertertComponent,
+    SnakeCaseConverterComponent
     
   ],
   imports: [

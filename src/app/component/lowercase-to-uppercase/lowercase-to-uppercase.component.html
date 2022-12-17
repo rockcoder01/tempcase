@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <h1 class="mt-4 font-weight-bold">lowercase to uppercase converter</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Type or Paste Your Content Here</mat-label>
+                    <textarea matInput rows="15" (keyup)="upperCase()" [(ngModel)]="textValue" name="textEnter"
+                        placeholder="Ex. Hello Word"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Output lowercase to uppercase converter</mat-label>
+                    <textarea matInput rows="15" [(ngModel)]="changeTextValue" id="text-content-change"
+                        name="changetext" placeholder="output uppercase to lowercase"></textarea>
+                </mat-form-field>
+            </form>
+            <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
+            <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
+        </div>
+    </div>
+
+    <hr>
+    <div class="p-4">
+        <h2><b>lowercase to uppercase converter overview</b></h2>
+        <h3><b>Introduction:</b></h3>
+        <p class="pragraph-font">
+            Many writers need help in turning the cap button on or off while emphasizing a particular word or phrase in the content. Due to this difficulty, we have added a lowercase to uppercase converter to our tool. It is a feature that converts small letters to capital letters without the worry of frequently turning on or off the cap button. If you want to change small letters to capital letters online, then you need to use this tool to get precise outcomes.
+        </p>
+
+        <p class="pragraph-font">
+            Example – CONVERTCASE TOOL CONVERTS LOWERCASE LETTERS INTO UPPERCASE LETTERS USING CONVERTER.
+        </p>
+    
+        <h3><b>Process of converting lowercase to uppercase letters using converter?</b></h3>
+        <ul>
+            <li>The content which has to be converted into uppercase needs to be copied.</li>
+            <li>After copying the content, open the lowercase to uppercase Converter tool.</li>
+            <li>Paste the copied content into the lowercase to uppercase Converter tool.</li>
+            <li>After lowercase to uppercase Converter provide option create file so If you want to cerate file then Tap Create File.</li>
+            <li>provide another option is copy clipboard so you can directly copy the content.</li>
+            <li>As soon as you select the section, the desired result will be obtained on convertcase</li>
+        </ul>
+    
+    </div>

@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <h1 class="mt-4 font-weight-bold">uppercase to lowercase converter</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Type or Paste Your Content Here</mat-label>
+                    <textarea matInput rows="15" (keyup)="lowerCase()" [(ngModel)]="textValue" name="textEnter"
+                        placeholder="Ex. Hello Word"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Output uppercase to lowercase</mat-label>
+                    <textarea matInput rows="15" [(ngModel)]="changeTextValue" id="text-content-change"
+                        name="changetext" placeholder="output uppercase to lowercase"></textarea>
+                </mat-form-field>
+            </form>
+            <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
+            <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
+        </div>
+    </div>
+
+    <hr>
+    <div class="p-4">
+        <h2><b>Conversion of the uppercase to lowercase Converter</b></h2>
+        <h3><b>Introduction:</b></h3>
+        <p class="pragraph-font">
+            uppercase to lowercase Converter tool helps you to change upper to lowercase content easily. Lowercase letters have been used by a few companies to look their logo more effective as this is the belief of the people that lowercase letters look better in comparison with UPPERCASE letters. This also maintains the writing continuity in the content. The capital to small converter tool easily transforms your content into lowercase letters.
+        </p>
+
+        <p class="pragraph-font">
+            Example – tom invests his earnings as soon as possible.
+        </p>
+    
+        <h3><b>How to convert content to uppercase to lowercase using converter?</b></h3>
+        <ul>
+            <li>Copy the content you want to convert into lowercase.</li>
+            <li>After copying the content, open the uppercase to lowercase Converter tool.</li>
+            <li>Paste the copied content into the uppercase to lowercase Converter tool.</li>
+            <li>After uppercase to lowercase Converter provide option create file so If you want to cerate file then Tap Create File.</li>
+            <li>provide another option is copy clipboard so you can directly copy the content.</li>
+            <li>As soon as you select the section, the desired result will be obtained on convertcase</li>
+        </ul>
+    
+    </div>
