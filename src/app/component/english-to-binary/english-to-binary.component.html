@@ -1,0 +1,94 @@
+<div class="container-fluid">
+    <h1 class="mt-4 font-weight-bold">English to binary Translator</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Enter Text</mat-label>
+                    <textarea matInput rows="15" (keyup)="stringTobinary()" [(ngModel)]="textValue" name="textEnter"
+                        placeholder="Ex. Hello Word"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="example-form mt-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>binary code</mat-label>
+                    <textarea matInput rows="15" [(ngModel)]="changeTextValue" id="text-content-change"
+                        name="changetext" placeholder="Ex.1101000 1100101 1101100 1101100 1101111 100000"></textarea>
+                </mat-form-field>
+            </form>
+            <div class="alert alert-success" *ngIf="formateType" role="alert">
+                text convertcase successfully to - {{formateType}}
+            </div>
+            <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
+            <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
+        </div>
+    </div>
+
+    <hr>
+    <div class="p-4">
+        <h2>Overview Of English To Binary Translator Tool</h2>
+        <p class="pragraph-font">
+            Electronic machines like computers only understand the language of binary digits. They do not interpret the
+            English language as interpreted by humans. For this reason, we have designed a tool that easily converts the
+            English language into Binary digits easily interpreted by computers. Our tool only gives output in 0 and 1
+            form, in which 0 means no flow of electricity and 1 means flow of electricity is allowed. </p>
+
+        <p>
+            <b> Example – 0101 1001 1111 0000 1100.</b>
+        </p><br>
+
+        <h3><b>Reason to use convertcase converter english to binary?</b></h3>
+        <p class="pragraph-font">
+            An English to binary translator is a tool that allows users to convert human-readable text into binary code.
+            Binary code is a series of 0s and 1s that computers use to store and process data. While humans can read and
+            understand text, computers can only read and process binary code.
+        <p>
+        <h3><b>Energy and Time-Efficient with English To Binary Translator Tool</b></h3>
+        <p class="pragraph-font">
+            Convertcase saves energy and time for programmers by converting a text file into a binary file. When you
+            require a machine that quickly changes the ASCII text to the equivalent binary number, then it is advisable
+            to use a english to binary translator tool online. This tool does the transformation in a short span of time
+            and can be less challenging.
+        <p>
+
+        <p class="pragraph-font">
+            English to binary conversion allows the programmer to send an encrypted code to the machine, which is not
+            accessible to any random person. Due to this, sensitive information can be secured from unauthorized access.
+            ASCII text is mainly used in electronic devices to maintain the standard for character sets.
+        <p>
+        <p class="pragraph-font">
+            English to binary translators are useful for a variety of purposes, including computer programming, data analysis, and cryptography. By using an English to binary translator, users can more easily work with binary code, saving time and effort and improving their understanding of this important coding language.
+        <p>
+        <p class="pragraph-font">
+            There are many English to binary translators available online, ranging from simple, free tools to more advanced options with additional features. When choosing an English to binary translator, it's important to consider the accuracy and speed of the tool, as well as its ease of use and reliability.
+        </p>
+        <h3><b>How to convert english into binary form?</b></h3>
+        <ul>
+            <li>Copy the content you want to convert.</li>
+            <li>Open English To Binary Translator on text convertcase tool for conversion.</li>
+            <li> Paste the copied content in the text box, or you can upload your file containing text.</li>
+            <li>Click on the “Convert English to Binary” button.</li>
+            <li>You will get the desired result in binary 0 and 1 format</li>
+        </ul>
+        <p class="pragraph-font">
+            Convertcase tool accurately translates the selected english into binary codes without mistakes. This process
+            is time-saving and also gives precise results to the programmer. You can complete your tasks with accuracy
+            by using our converter tool online.
+        </p>
+        <h3>Certainly! Here are a few examples of text that can be translated using an English to binary translator:</h3>
+        <ul>
+            <li>"Hello, world!"</li>
+            <li>"I love learning about computer programming!"</li>
+        </ul>
+
+        <h3>When translated using an Eng to binary translator, these phrases would be converted into the following binary code:</h3>
+        <ul>
+            <li>"01001000 01100101 01101100 01101100 01101111 00101100 00100000 01110111 01101111 01110010 01101100 01100100 00100001"</li>
+            <li>"01001001 00100000 01101100 01101111 01101111 01101011 00100000 01101111 01110010 01100101 01110010 01100101 01110011 01110100 00100000 01110000 01110010 01100001 01110000 01101001 01110100 00100000 01110000 01101111 01110000 01100001 01110100 01100101 01110010 01101111 00101110"</li>
+        </ul>
+    </div>

@@ -1,0 +1,393 @@
+<div class="container">
+    <h1 class="mt-5"><b>ConvertCase z licznikiem słów</b></h1>
+
+    <div class="output row">
+        <div>Postacie:
+            <span id="characterCount" ng-if="text.length > 0">{{textValue.length}}</span>
+        </div>
+        <div>Słowa: <span id="wordCount">{{ words }}</span></div>
+    </div>
+    <div class="output row">
+        <div>Zdania: <span id="sentenceCount">{{ sentences }}</span></div>
+        <div>akapity: <span id="paragraphCount">{{ paragraphs }}</span></div>
+    </div>
+
+
+    <div class="row">
+
+
+        <div class="col-md-12">
+            <form class="example-form mt-4">
+                <label>Wprowadź tekst</label>
+                <div style="float:right">
+                    <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">
+                        <i class="fa fa-clipboard p-1" style="font-size:24px;"></i>
+                        Skopiuj schowek</button>
+                    <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary"> <i
+                            class="fa fa-save p-1" style="font-size:24px"></i>Utwórz plik</button>
+                </div>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Wprowadź tekst</mat-label>
+                    <textarea matInput rows="15" [(ngModel)]="textValue" (ngModelChange)="modelChangeFn($event)"
+                        name="Hello World" placeholder="Ex. Hello Word"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+        
+            <div class="row">
+                <button mat-flat-button (click)="upperCase('upperCase')" class="mx-1 my-1" color="primary">Konwerter wielkich liter</button>
+                <button mat-flat-button (click)="upperCase('titleCase')" class="mx-1 my-1" color="primary">titleCase converter</button>
+                <button mat-flat-button (click)="upperCase('lowerCase')" class="mx-1 my-1" color="primary">Konwerter małych liter</button>
+                <button mat-flat-button (click)="upperCase('lowerCaseFirst')" class="mx-1 my-1"
+                    color="primary">mały pierwszy konwerter</button>
+                <button mat-flat-button (click)="upperCase('sentenceCase')" class="mx-1 my-1"
+                    color="primary">konwerter przypadków zdań</button>
+                <button mat-flat-button (click)="upperCase('camelCase')" class="mx-1 my-1" color="accent">konwerter przypadków wielbłąda</button>
+                <button mat-flat-button (click)="upperCase('pascalCase')" class="mx-1 my-1" color="warn">konwerter wielkości liter w pascalu</button>
+                <button mat-flat-button (click)="upperCase('pathCase')" class="mx-1 my-1" color="accent">konwerter przypadków ścieżki</button>
+                <button mat-flat-button (click)="upperCase('snakeCase')" class="mx-1 my-1" color="accent">konwerter przypadków węża</button>
+                <button mat-flat-button (click)="upperCase('paramCase')" class="mx-1 my-1" color="primary">konwerter wielkości liter</button>
+                <button mat-flat-button (click)="upperCase('dotCase')" class="mx-1 my-1" color="warn">przypadek kropki</button>
+                <button mat-flat-button (click)="upperCase('alternateCase')" class="mx-1 my-1" color="warn">Naprzemienny konwerter przypadków</button>
+                <button mat-flat-button (click)="upperCase('constantCase')" class="mx-1 my-1"
+                    color="primary">stały konwerter przypadków</button>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+<div>
+    <div class="p-4">
+        <h2><b>przedstawienie się:</b></h2>
+        <p class="pragraph-font">
+            Wszyscy podczas pisania jakichkolwiek rzeczy lub redagowania utknęli na konwersji przypadków słów lub fraz i na
+            poprawić te rzeczy, które albo robią to ręcznie, albo wybierają losowe oprogramowanie lub narzędzia online. Niektóre z
+            narzędzia nie są wystarczająco wydajne lub nie mają rozbudowanych funkcji, które oferuje idealne narzędzie do konwersji
+            powinnam
+            mieć. I z tych powodów ludzie marnują dużą część czasu, zmieniając obudowy swoich dzieł.
+            Aby złagodzić ich kłopoty, zaprojektowaliśmy to narzędzie online do konwersji, które z łatwością przekształca
+            przypadku Twoich tekstów w mgnieniu oka. Wszystko, co musisz zrobić, to skopiować tekst i wkleić go do narzędzia i
+            Bum! po wybraniu przypadku tekst jest gotowy. Rozumiemy, że kiedy piszesz płynnie, nie możesz się skupić
+            w swoich sprawach.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h2><b>Licznik słów:</b></h2>
+        <h3><b>Co to jest licznik słów?</b></h3>
+
+        <p class="pragraph-font">
+            Podczas pisania treści niemożliwe jest śledzenie liczby słów za każdym razem. Ale tak, jak potrzebują pisarze
+            przestrzegać minimalnej lub maksymalnej liczby słów podczas przygotowywania treści i upewnić się, że otrzymają każde rozwiązanie
+            związanych z pisaniem, włączyliśmy tę funkcję do naszego narzędzia do konwersji tekstu.
+        </p>
+        <h3><b>Jak sprawdzić liczbę słów?</b></h3>
+        <p class="pragraph-font">
+            Aby sprawdzić liczbę słów, po prostu zacznij wpisywać tekst. Zobaczysz liczbę słów i wzrost
+            lub zmniejsz je w zależności od potrzeb. Jeśli już wpisałeś swoją treść w MS Word lub Dokumentach Google, my
+            osłaniałem cię. Możesz po prostu skopiować tekst i wkleić go w polu tekstowym, aby zobaczyć liczbę słów.
+            Ta funkcja nie jest tutaj ograniczona, możesz nawet sprawdzić liczbę znaków.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h2><b>konwerter przypadków zdań:</b></h2>
+        <p class="pragraph-font">
+            Przypadek w zdaniu, znany również jako styl w dół lub styl referencyjny, jest rodzajem stylu wielkich liter. The
+            użycie przypadków zdaniowych można często spotkać w pracach akademickich i zawodowych. Wielkość zdania pisze się wielką literą
+            pierwsza litera pierwszego słowa w tytule. Pozostałe litery i słowa w tytule są pisane małymi literami
+            chyba że są rzeczownikami własnymi.
+        </p>
+        <p class="pragraph-font">
+            <b>Przykład- - Najlepszy hotel w Delhi, Historia Mahatmy Gandhiego</b>
+        </p>
+        <h4><b><u>Jaka jest różnica między przypadkiem zdania a przypadkiem tytułu?</u></b></h4>
+        <p class="pragraph-font">
+            W przypadku zdania, o którym wspomnieliśmy powyżej, pierwsza litera pierwszego słowa w
+            tytuł. Pozostałe słowa w tytule nie są pisane wielką literą.
+        </p>
+        <p class="pragraph-font">
+            Ale przypadek tytułowy działa inaczej. Pierwsza litera każdego słowa w tytule powinna być pisana wielką literą
+            z wyjątkiem tego, o czym wspomnieliśmy powyżej, przyimków, przedimków i spójników, takich jak „an”, „ale”, „the”, „i”,
+            "z." itp. należy pisać małymi literami. Ogólnie rzecz biorąc, większość liter słów w przypadku tytułu zamienia się w
+            duże litery.
+        </p>
+        <h4><b>Jak zamienić przypadek na przypadek zdania:</b></h4>
+        <ul>
+            <li class="pragraph-font">
+                Skopiuj frazę lub tekst swojego pisma, które chcesz przekonwertować
+            </li>
+            <li class="pragraph-font">
+                Po skopiowaniu otwórz nasze narzędzie
+            </li>
+            <li class="pragraph-font">
+                Wklej skopiowany tekst w podane pole tekstowe
+            </li>
+            <li class="pragraph-font">
+                Stuknij w sekcję „Przypadek zdania”.
+            </li>
+            <li class="pragraph-font">
+                I otrzymasz swoje dane wyjściowe na convertcase
+            </li>
+        </ul>
+    </div>
+
+    <div class="p-4">
+        <h2><b>Konwersja wielkich liter na małe:</b></h2>
+        <p class="pragraph-font">
+            Jeśli masz problem z przekonwertowaniem tekstu na małe litery, zapewniamy Ci pomoc. Niewiele firm używa małych liter
+            liter w swoim logo, ponieważ ludzie uważają, że małe litery wyglądają lepiej niż WIELKIE. Ono
+            zachowuje również ciągłość pisma.
+        </p>
+        <p class="pragraph-font">
+            <b>Przykład – Jerzy chce jak najszybciej rozpocząć inwestycję.</b>
+        </p>
+
+        <h4><b>Jak przekonwertować wielkość liter za pomocą konwersji wielkich liter na małe:</b></h4>
+        <ul>
+            <li class="pragraph-font">
+                Skopiuj frazę lub tekst swojego pisma, które chcesz przekonwertować na małe litery
+            </li>
+            <li class="pragraph-font">
+                Po skopiowaniu otwórz nasze narzędzie
+            </li>
+            <li class="pragraph-font">
+                Wklej skopiowane teksty w podane pole tekstowe
+            </li>
+            <li class="pragraph-font">
+                Stuknij w sekcję „małe litery”.
+            </li>
+            <li class="pragraph-font">
+                I otrzymasz swoje dane wyjściowe na convertcase
+            </li>
+        </ul>
+    </div>
+
+    <div class="p-4">
+        <h2><b>Konwerter wielkich liter na małe:</b></h2>
+        <p class="pragraph-font">
+            Kiedy pisarz chce podkreślić frazę lub słowo, używa słów pisanych WIELKIMI LITERAMI lub WIELKIMI LITERAMI. I oczywiście,
+            rozumiemy, jak trudne jest włączanie i wyłączanie przycisku zatyczki za każdym razem podczas pisania. I dla
+            to, dodaliśmy tę funkcję do naszego narzędzia. Ta funkcja konwertuje całą frazę lub słowo, które jest w dowolnym
+            wielkość liter na WIELKIE LITERY w ciągu sekundy.
+        </p>
+        <p class="pragraph-font">
+            <b>Przykład – KORZYSTANIE Z PLATFORM SPOŁECZNOŚCIOWYCH SZYBKO ROZWIJA SIĘ</b>
+        </p>
+
+        <h4><b>Jak przekonwertować narzędzie wielkości liter za pomocą konwersji wielkich liter na małe:</b></h4>
+        <ul>
+            <li class="pragraph-font">
+                Skopiuj frazę lub tekst swojego pisma, które chcesz przekonwertować
+            </li>
+            <li class="pragraph-font">
+                Po skopiowaniu otwórz nasze narzędzie
+            </li>
+            <li class="pragraph-font">
+                Wklej skopiowany tekst w podane pole tekstowe
+            </li>
+            <li class="pragraph-font">
+                Stuknij w sekcję „WIELKIE LITERY”.
+            </li>
+            <li class="pragraph-font">
+                I tak! Masz swoje dane wyjściowe na convertcase
+            </li>
+        </ul>
+    </div>
+
+    <div class="p-4">
+        <h2><b>przypadek konwertera wielkich liter:</b></h2>
+        <p class="pragraph-font">
+            Wielkie litery zamieniają pierwszą literę słowa na wielkie i małe litery pozostałych liter.
+            Wielkie litery mogą wyglądać jak przypadek tytułowy, jednak istnieje niewielka różnica. Jak już wspomnieliśmy
+            powyżej przypadek tytułowy nie konwertuje przyimków, przedimków i spójników, podczas gdy wielkie litery
+            konwertuje każdą pierwszą literę słowa.
+        </p>
+
+        <p class="pragraph-font">
+            <b>Przykład — przyszłość technologii 5g</b>
+        </p>
+
+        <h4><b>Jak przekonwertować wielkość liter za pomocą konwersji na wielkie litery:</b></h4>
+        <ul>
+            <li class="pragraph-font">
+                Skopiuj frazę lub tekst swojego pisma, które chcesz przekonwertować na wielkie litery
+            </li>
+            <li class="pragraph-font">
+                Po skopiowaniu otwórz swój konwerter
+            </li>
+            <li class="pragraph-font">
+                Wklej skopiowane teksty w podane pole tekstowe
+            </li>
+            <li class="pragraph-font">
+                Stuknij w sekcję „Wielkie litery”.
+            </li>
+            <li class="pragraph-font">
+                Otrzymasz dane wyjściowe w sprawie konwersji
+            </li>
+        </ul>
+    </div>
+
+    <div class="p-4">
+        <h2><b>Naprzemienny konwerter przypadków:</b></h2>
+        <p class="pragraph-font">
+            Funkcja alternatywnej wielkości liter pomoże Ci przekonwertować tekst na alternatywne wielkie i małe litery,
+            pierwsza litera zamienia się w dużą literę, po której następuje druga mała litera, a potem znowu
+            wielka trzecia litera i tak dalej. Ten rodzaj stylu przypadku jest używany do zwrócenia uwagi czytelników na a
+            określony tekst lub frazę albo zaznaczyć część dokumentu pisanego.
+        </p>
+        <p class="pragraph-font">
+            <b>Przykład — NaPrZeMiEnNy kOnWeRtEr</b>
+        </p>
+
+        <h4><b>Jak zmienić wielkość liter tekstu za pomocą funkcji konwersji na zmienną wielkość liter:</b></h4>
+        <ul>
+            <li class="pragraph-font">
+                Skopiuj tekst, który chcesz przekonwertować na alternatywną wielkość liter.
+            </li>
+            <li class="pragraph-font">
+                Po zakończeniu kopiowania otwórz konwerter naprzemiennych narzędzi
+            </li>
+            <li class="pragraph-font">
+                Wklej skopiowany tekst do podanego obszaru tekstowego
+            </li>
+            <li class="pragraph-font">
+                Stuknij w sekcję „ALTERNATYWNY PRZYPADEK”.
+            </li>
+            <li class="pragraph-font">
+                Otrzymasz dane wyjściowe w sprawie konwersji
+            </li>
+        </ul>
+    </div>
+
+    <div class="p-4">
+        <h2><b>Konwerter wielkości liter:</b></h2>
+
+        <h3><b>Co to jest sprawa tytułowa?:</b></h3>
+        <p class="pragraph-font">
+            Sprawa tytułowa w zasadzie styl, który był szeroko stosowany w książkach, gazetach, blogach i artykułach
+            zrób tytuły lub nagłówki. Daje profesjonalny i przyciągający wzrok wygląd. Ponieważ prawie każdy kupuje
+            książkę lub przegląda zawartość, sprawdzając tylko jej tytuły. prawda? Następnie powinieneś skupić się na budowaniu
+            czysta i właściwa sprawa tytułowa. W tym celu możesz skorzystać z pomocy tego narzędzia do konwersji wielkości liter.
+        </p>
+
+        <p class="pragraph-font">
+            Krótko mówiąc, w tytule, dla każdego słowa w zdaniu, pierwsza litera alfabetu zamienia wielkie litery
+            podczas gdy
+            dla pozostałych alfabetów słowo zamienia się na małe litery. Jednakże, jest kilka wyjątków. The
+            sprawa tytułowa nie obejmuje.
+        </p>
+
+        <ul>
+            <li class="pragraph-font">
+                Artykuły (a, an i the)
+            </li>
+            <li class="pragraph-font">
+                Spójniki (ale, i, lub itp.)
+            </li>
+            <li class="pragraph-font">
+                Przyimki (w, za, na, w górę)
+            </li>
+        </ul>
+
+        <p class="pragraph-font">
+            Jednak może się wydawać, że stworzenie sprawy tytułowej jest łatwe, ale w rzeczywistości tak nie jest. Wiele słów jest używanych w różnych
+            funkcje gramatyczne. Na przykład „Jesteś zależny ode mnie finansowo” - on jest używane jako przyimek w
+            wyrażenie i musi być pisane małymi literami, ale kiedy używamy „Proszę kontynuować rozmowę”- to samo jest używane
+            jako przymiotnik, więc pierwszy alfabet musi być pisany wielką literą.
+        </p>
+
+        <h3><b>Jak pracować Konwerter wielkości liter:</b></h3>
+        <p class="pragraph-font">
+            <b><i><u>
+                Aby przekonwertować dowolny tekst na wielkość liter za pomocą naszego narzędzia, musisz wykonać kilka czynności
+                podstawowy
+                kroki
+                o których mowa poniżej:
+                    </u></i></b>
+        </p>
+        <ul>
+            <li class="pragraph-font">
+                Skopiuj tekst, który chcesz przekonwertować
+            </li>
+            <li class="pragraph-font">
+                Wklej go do tekstu są
+            </li>
+            <li class="pragraph-font">
+                Kliknij przycisk wielkości liter
+            </li>
+            <li class="pragraph-font">
+                I wyprowadź się w sekundę
+            </li>
+            <li class="pragraph-font">
+                I uzyskaj dane wyjściowe w ciągu sekundy
+            </li>
+            <li class="pragraph-font">
+                Skopiuj dane wyjściowe i użyj ich zgodnie ze swoimi wymaganiami
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="p-4">
+        <h3><a routerLink="/json-stringify-text"><b>string do konwertera stringify JSON</b></a></h3>
+        <p class="pragraph-font">
+            Celem stratyfikacji tekstu JSON jest poprawienie formatowania tekstu warstwowego, co jest bardzo pomocne w zapisywaniu
+            czas.
+            Jak to działa: po prostu musimy to zrobić, aby automatycznie pisać na lewym panelu z warstwami
+            tekst będzie dostępny w prawym panelu, możesz go po prostu skopiować i wkleić w poprzek
+            Następnie musisz sprawdzić, czy są jakieś nowe linie, które również generują /n symbole
+            ponieważ tabulatory są konwertowane na symbole /t po tym, daj nam znać warunki i inne informacje zwrotne na ten temat
+            może pomóc nam udoskonalić nasze narzędzie konwersji.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h2><a routerLink="/snake-case-converter"><b>Konwerter skrzynek węża Narzędzie online</b></a></h2>
+        <p class="pragraph-font">
+            obudowa węża używana głównie do nazewnictwa Rozmowa w świecie komputerów, na przykład. zdefiniuj zmienną, podprogram
+            nazwij i stwórz kilka.
+            BYŁY. wąż_przypadek
+            styl sędziowania przypadku węża, w którym dwa słowa między spacjami zastępują podkreślenie (_)
+            Skrzynia węża pierwsza, druga, jest mała, jest podobna do camelCase.
+        </p>
+    </div>
+
+    <div class="p-4">
+        <h3><a routerLink="/bindarycode-to-english-translator"><b>angielski do binarny konwerter tłumaczeń:</b></a></h3>
+        <p class="pragraph-font">
+            to narzędzie pomoże Ci przekonwertować angielski na binarny. Kiedy konwertujesz angielski na binarny
+            tylko po powrocie
+            0 i 1. binarne 0 i 1 reprezentują włączanie i wyłączanie, „0” oznacza brak przepływu energii elektrycznej, a „1” oznacza
+            pozwolić płynąć elektryczności.
+        </p>
+
+        <p>
+            (E.g: 01000101 01111000 01100001 01101101 01110000 01101100 01100101):
+        </p><br>
+
+        <p class="pragraph-font">
+            jest to jeden z najstarszych, mający długą i różnorodną historię, używany przez wszystkich
+            języków obliczeniowych obecnie na tym świecie. Używając kodu binarnego, który można zrozumieć tylko w tym języku
+            przez maszyny. pomoże to w konwersji tekstu na kod binarny, a także pomoże w ulepszeniu dobra
+            zmianę stylistyczną, aby całkowicie zmienić inny wygląd i styl wybranego tekstu
+            gdy chcemy zachować jakieś tajne lub ukryte wiadomości tekstowe, ten kod binarny pomoże w tej sytuacji.
+            co jest najłatwiejszym i najprostszym sposobem.
+            pomaga w tłumaczeniu ASCII na kod binarny za pomocą narzędzia do tłumaczenia, które może przyspieszyć całość
+            doświadczenie.
+        </p>
+
+        <h3><b>Jak przekonwertować angielski na binarny</b></h3>
+        <p>Konwersja angielskiego na binarny kod ASCII:</p>
+        <ul>
+            <li>Pobierz bajt binarny</li>
+            <li>Konwertuj bajt binarny na dziesiętny</li>
+            <li>Uzyskaj znak kodu ASCII z tabeli ASCII</li>
+            <li>Kontynuuj z następnym bajtem</li>
+        </ul>
+    </div>
+</div>
+</div>

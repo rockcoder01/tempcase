@@ -1,0 +1,22 @@
+.example-form {
+    min-width: 150px;
+    max-width: 720px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  .stretched-text {
+    letter-spacing: 2px;
+    display: inline-block;
+    font-size: 32px;
+    transform: scaleY(0.5);
+    transform-origin: 0 0;
+    margin-bottom: -50%;
+  }
+  span {
+    font-size: 16px;
+    vertical-align: top;
+  }

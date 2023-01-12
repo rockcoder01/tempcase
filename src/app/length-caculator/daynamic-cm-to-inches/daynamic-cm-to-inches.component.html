@@ -1,0 +1,73 @@
+<div id='content'>
+    <h1 id='title'>{{cm}} cm to inches</h1>
+    <div id='ul'>
+        <ul>
+            <li>
+                <label>mm</label>
+                <input [(ngModel)]="mm" (ngModelChange)="mmChanges()" id="poundsInput">
+            </li>
+            <li><label>cm</label>
+                <input [(ngModel)]="cm" (ngModelChange)="cmChanges()" id="kilogramsInput">
+            </li>
+            <li><label>meter</label>
+                <input [(ngModel)]="meter" (ngModelChange)="meterChanges()" id='gramsInput'>
+            </li>
+            <li><label>inches</label>
+                <input [(ngModel)]="inches" (ngModelChange)="inchesChanges()" id='tonInput'>
+            </li>
+            <li><label>feet</label>
+                <input [(ngModel)]="feet" (ngModelChange)="feetChanges()" id='ounceInput'>
+            </li>
+        </ul>
+    </div>
+    <div id='button'>
+        <button id='clearButton' class="btn" (click)="clear()">Clear All</button>
+    </div>
+</div>
+<div class="container mt-5">
+    <h2>{{cm}} cm to inches overview</h2>
+    <p class="pragraph-font">
+        When it comes to measurement conversions, one of the most common is converting centimeters (cm) to inches (in).
+        Specifically, converting {{cm}} cm to inches can be a bit tricky without the proper tools. For those wondering
+        how many inches are in {{cm}} cm, one method is to use the conversion factor of 0.3937 inches per centimeter. By
+        multiplying {{cm}} cm by 0.3937 inches per cm, we can determine that {{cm}} cm is equal to {{cm * 0.3937}}
+        inches.
+    </p>
+    <p class="pragraph-font">
+        Our website offers an easy-to-use, accurate, and fast conversion tool that can be used to quickly convert any
+        value of centimeters to inches, including the conversion of {{cm}} cm to inches. With this online conversion
+        tool, converting {{cm}} cm to inches and other measurements is fast, accurate and convenient. In addition, our
+        website also contains an information section where we have an explanation of different measurement system, the
+        history of the cm and inch and some conversion examples. This section will help visitors who are not familiar
+        with measurements conversion to understand the concept better and to make it more convenient for them.
+    </p>
+    <h3><b> formula for converting {{cm}} cm to inches:</b></h3>
+    <p class="pragraph-font">
+        <b>
+            When it comes to measurement conversions, one of the most common is converting centimeters (cm) to inches
+            (in). Specifically, converting {{cm}} cm to inches can be a bit tricky without the proper tools or
+            understanding of the conversion formula. The formula for converting centimeters to inches is as follows:
+        </b>
+    </p>
+    <p class="pragraph-font">
+        <b>
+            1 cm = 0.3937 inches
+        </b>
+    </p>
+    <h3><b>To convert {{cm}} cm to inches, we can use the formula above by multiplying the number of centimeters by 0.3937.
+    </b></h3>
+    <p class="pragraph-font">
+            {{cm}} cm x 0.3937 inches/cm = 196.85 inches
+    </p>
+    <p class="pragraph-font">
+        This means that {{cm}} cm is equivalent to 196.85 inches.
+   </p>
+   <p class="pragraph-font">
+    It's important to note that this is an approximate conversion, as there are slight variations in the conversion factor depending on the specific measurement system being used. However, the formula above is the most widely used and accepted conversion factor.
+   </p>
+
+   <p class="pragraph-font">
+       Our website offers an easy-to-use, accurate, and fast online conversion tool that can be used to quickly convert any value of centimeters to inches, including the conversion of {{cm}} cm to inches. With this online conversion tool, converting {{cm}} cm to inches and other measurements is fast, accurate and convenient.
+   </p>
+
+</div>

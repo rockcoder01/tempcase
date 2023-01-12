@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './component/header/header.component';
 import { TextCaseConvertComponent } from './component/file-convert/text-caseconvert.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -30,6 +30,19 @@ import { LowercaseToUppercaseComponent } from './component/lowercase-to-uppercas
 import { AlternatingCaseConverterComponent } from './component/alternating-case-converter/alternating-case-converter.component';
 import { SentenceCaseConvertertComponent } from './component/sentence-case-convertert/sentence-case-convertert.component';
 import { SnakeCaseConverterComponent } from './component/snake-case-converter/snake-case-converter.component';
+import { NgxJsonLdModule } from '@ngx-lite/json-ld';
+import { FrTextConverterComponent } from './component/fr-text-converter/fr-text-converter.component';
+import { PtTextConverterComponent } from './component/pt-text-converter/pt-text-converter.component';
+import { EsTextConverterComponent } from './component/es-text-converter/es-text-converter.component';
+import { RuTextConverterComponent } from './component/ru-text-converter/ru-text-converter.component';
+import { ItTextConverterComponent } from './component/it-text-converter/it-text-converter.component';
+import { PlTextConverterComponent } from './component/pl-text-converter/pl-text-converter.component';
+import { DeTextConverterComponent } from './component/de-text-converter/de-text-converter.component';
+import { ElTextConverterComponent } from './component/el-text-converter/el-text-converter.component';
+import { TrTextConverterComponent } from './component/tr-text-converter/tr-text-converter.component';
+import { HuTextConverterComponent } from './component/hu-text-converter/hu-text-converter.component';
+import { UaTextConverterComponent } from './component/ua-text-converter/ua-text-converter.component';
+import { EnglishToBinaryComponent } from './component/english-to-binary/english-to-binary.component';
 
 @NgModule({
   declarations: [
@@ -47,11 +60,24 @@ import { SnakeCaseConverterComponent } from './component/snake-case-converter/sn
     LowercaseToUppercaseComponent,
     AlternatingCaseConverterComponent,
     SentenceCaseConvertertComponent,
-    SnakeCaseConverterComponent
+    SnakeCaseConverterComponent,
+    FrTextConverterComponent,
+    PtTextConverterComponent,
+    EsTextConverterComponent,
+    RuTextConverterComponent,
+    ItTextConverterComponent,
+    PlTextConverterComponent,
+    DeTextConverterComponent,
+    ElTextConverterComponent,
+    TrTextConverterComponent,
+    HuTextConverterComponent,
+    UaTextConverterComponent,
+    EnglishToBinaryComponent,
     
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
@@ -64,6 +90,7 @@ import { SnakeCaseConverterComponent } from './component/snake-case-converter/sn
     MatProgressBarModule,
     NgxCopyToClipboardModule,
     HttpClientModule,
+    NgxJsonLdModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

@@ -1,0 +1,126 @@
+<div class="container-fluid">
+    <h1 class="mt-4 font-weight-bold">octal to binary converter</h1>
+    <div class="row">
+        <div class="col-md-12"><app-binary-translator-filter [selectedOption1]="'octal'" [selectedOption]="'binary'"></app-binary-translator-filter>
+        </div>
+        <div class="col-md-6">
+            <h2>octal Input</h2>
+            <form class="example-form mt-1"  [formGroup]="formGroup">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Type or Paste Your Content Here</mat-label>
+                    <textarea id="octal" matInput rows="4" type="text" required pattern="[0-7]*" (keyup)="octalTobinary()"
+                    formControlName="textValue" name="textEnter" placeholder="Ex. 10101"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+                <div class="error-message" *ngIf="formGroup.get('textValue')?.invalid && formGroup.get('textValue')?.touched">
+                    Please enter a valid octal string
+                  </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2>binary Output</h2>
+            <form class="example-form mt-1">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Output
+                        octal to binary Converter</mat-label>
+                    <textarea matInput rows="4" [(ngModel)]="changeTextValue" id="text-content-change" name="changetext"
+                        placeholder="Enter Title Case"></textarea>
+                </mat-form-field>
+            </form>
+            <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
+            <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
+        </div>
+    </div>
+
+    <hr>
+    <div class="p-4">
+        <h2><b>Octal to Binary Converter Tool: Quickly Convert Octal to Binary and Vice Versa        </b></h2>
+        <h3><b>Introduction:</b></h3>
+        <p class="pragraph-font">
+            octal to binary converter conversion is a common task in computer science and is often used to simplify the representation of large octal numbers. In this blog post, we will look at an algorithm for converting octal numbers to binary numbers without any plagiarism.
+        </p>
+
+        <p class="pragraph-font">
+            First, let's define what convert octal to binary numbers are. Octal numbers are a base-8 numbering system, which means that they consist of eight digits: 0, 1, 2, 3, 4, 5, 6, and 7. Binary numbers, on the other hand, are a base-2 numbering system, which means that they consist of only two digits: 0 and 1. These digits are often referred to as "bits" in the context of computer science.
+        </p>
+
+        <h3><b>Now that we have a basic understanding of how convert octal to binary numbers, let's look at the algorithm for converting octal to binary numbers. This algorithm involves the following steps:</b></h3>
+        <ul>
+            <li class="pragraph-font">Divide the octal number into groups of three digits, starting from the right.</li>
+            <li class="pragraph-font">Convert each group of three digits to its equivalent binary number using the following table:</li>
+              <table border="1" class="mt-3 mb-3" >
+                <thead>
+                    <th> 
+                        Octal  
+                    </th>
+                    <th> 
+                        Binary  
+                    </th>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>000</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>001</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>010</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>011</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>101</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>110</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>111</td>
+                        </tr>
+                </tbody>
+                
+              </table>
+
+              For example, if the octal number is "654", we would divide it into the following groups of three digits: "654". Using the above table, we would then convert each group of three digits to its equivalent binary number, resulting in the binary number "11010110".
+            <li>
+                <p class="mt-3 pragraph-font">
+                    Concatenate the converted binary numbers to get the final binary number.
+                </p>
+                <p class="mt-3 pragraph-font">
+                    This algorithm is relatively simple and easy to implement, making it a useful tool for converting large octal to binary numbers. It is also a useful tool for simplifying the representation of octal numbers, as binary numbers are generally shorter and easier to read than their octal counterparts.
+                </p>
+                <p class="mt-3 pragraph-font">
+                    One of the key benefits of converting octal to binary numbers is that it allows us to reduce the number of digits required to represent a given number. For example, a 32-bit binary number would require 32 digits to we easyly convert binary diffrent form with binary translator
+                </p>
+            </li>
+        </ul>
+        <p class="mt-3 pragraph-font">But first, let's explain what octal and binary are and why you might need to convert between them. Octal, or base 8, is a numeral system that uses 8 digits (0-7) to represent numbers. It is commonly used in computer science and digital electronics because it can be represented using just three digits in binary form.
+        </p>
+        <p class="mt-3 pragraph-font">Binary, or base 2, is another numeral system that uses 2 digits (0 and 1) to represent numbers. It is often used as a convenient way to represent data using just two states (on and off, or 1 and 0).
+        </p>
+        <p class="mt-3 pragraph-font">To convert octal to binary, or vice versa, you can manually perform the calculations by dividing the octal number into groups of three digits and converting each group to a binary digit. However, this can be time-consuming and prone to errors, especially for large numbers. That's where our octal to binary converter tool comes in handy.
+        </p>
+        <p class="mt-3 pragraph-font">
+            To use our tool, simply enter the octal or binary number in the input field and hit "Convert." The result will be displayed in the output field as the corresponding number in the other base. You can also switch between octal and binary by using the "Swap" button.
+        </p>
+        <p class="mt-3 pragraph-font">So next time you need to convert octal to binary, or vice versa, don't waste your time with manual calculations. Use our octal to binary converter tool and get the accurate results you need in a fraction of the time. Try it out now!
+        </p>
+
+
+
+    </div>

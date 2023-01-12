@@ -1,0 +1,34 @@
+.example-form {
+    min-width: 150px;
+    // max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  .pragraph-font {
+    font-size: medium;
+    word-spacing: 4px;
+  }
+  
+  .output.row {
+    width: 100%;
+    font-size: 1.4rem;
+    margin: 1% 0;
+    background-color: #eeeeee;
+  }
+  
+  .output.row div {
+    display: inline-block;
+    width: 42%;
+    padding: 10px 15px;
+    margin: 1%;
+  }
+  
+  .output.row span {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  

@@ -139,5 +139,4 @@ export class TextCaseConvertComponent implements OnInit {
     return chars.join("");
   };
 
-
 }

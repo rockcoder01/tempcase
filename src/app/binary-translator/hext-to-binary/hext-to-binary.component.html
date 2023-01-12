@@ -1,0 +1,150 @@
+<div class="container-fluid">
+    <h1 class="mt-4 font-weight-bold">hexadecimal to binary converter</h1>
+    <div class="row">
+        <div class="col-md-12"><app-binary-translator-filter [selectedOption1]="'hexadecimal'" [selectedOption]="'binary'"></app-binary-translator-filter>
+        </div>
+        <div class="col-md-6">
+            <h2>hexadecimal Input</h2>
+            <form class="example-form mt-1" [formGroup]="formGroup">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Type or Paste Your Content Here</mat-label>
+                    <textarea id="octal" matInput rows="4" type="text" required pattern="^[a-fA-F0-9]+$"
+                        (keyup)="hexaToBinary()" formControlName="textValue" name="textEnter"
+                        placeholder="Ex. 10101"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+                <div class="error-message"
+                    *ngIf="formGroup.get('textValue')?.invalid && formGroup.get('textValue')?.touched">
+                    Please enter a valid hexadecimal string
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2>binary Output</h2>
+            <form class="example-form mt-1">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Output
+                        hexadecimal to binary Converter</mat-label>
+                    <textarea matInput rows="4" [(ngModel)]="changeTextValue" id="text-content-change"
+                        name="changetext"></textarea>
+                </mat-form-field>
+            </form>
+            <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
+            <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
+        </div>
+    </div>
+
+    <hr>
+    <div class="p-4">
+        <h2><b>hexadecimal to binary converter overview</b></h2>
+        <h3><b>Introduction:</b></h3>
+        <p class="pragraph-font">
+            Hexadecimal to binary conversion is a common task in computer science and is often used to represent large numbers in a more compact form. In this blog post, we will look at an algorithm for converting hexadecimal numbers to binary numbers and discuss the unique features and benefits of this conversion process.
+        </p>
+
+        <p class="pragraph-font">
+            First, let's define what hexadecimal and binary numbers are. Hexadecimal numbers are a base-16 numbering system, which means that they consist of 16 digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, and F. Binary numbers, on the other hand, are a base-2 numbering system, which means that they consist of only two digits: 0 and 1. These digits are often referred to as "bits" in the context of computer science.
+        </p>
+
+        <h3><b>Now that we have a basic understanding of hexadecimal and binary numbers, let's look at the algorithm for converting hexadecimal numbers to binary numbers. This algorithm involves the following steps:</b></h3>
+        <ul>
+            <li class="pragraph-font">Convert each digit in the hexadecimal number to its binary equivalent using the following table:</li>
+              <table border="1" class="mt-3 mb-3" >
+                <thead>
+                    <th> 
+                        Hexadecimal  
+                    </th>
+                    <th> 
+                        Binary  
+                    </th>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>0000</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>0001</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>0010</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>0011</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>0100</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>0101</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>0110</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>0111</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>1000</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>1001</td>
+                        </tr>
+                        <tr>
+                            <td>A</td>
+                            <td>1010</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>1011</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>1100</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td>1101</td>
+                        </tr>
+                        <tr>
+                            <td>E</td>
+                            <td>1110</td>
+                        </tr>
+                        <tr>
+                            <td>F</td>
+                            <td>1111</td>
+                        </tr>
+                </tbody>
+                
+              </table>
+
+            <li class="pragraph-font">
+                <p class="mt-3 pragraph-font">
+                    Write the binary equivalents in the same order as the digits in the hexadecimal number
+                </p>
+                <p class="mt-3 pragraph-font">
+                    For example, let's say we want to convert the hexadecimal number "D6" to its binary equivalent. First, we convert each digit to its binary equivalent using the table above: "1101" "0110". Finally, we write the binary equivalents in the same order as the digits in the hexadecimal number: "11010110".
+                </p>
+                <p class="mt-3 pragraph-font">
+                    As you can see, this algorithm is relatively simple and easy to implement, making it a useful tool for converting hexadecimal numbers to binary numbers. It is also a useful tool for representing large numbers in a more compact form, as binary numbers are generally shorter and easier to read than their hexadecimal counterparts.
+                </p>
+                <p class="mt-3 pragraph-font">
+                    One of the main advantages of binary numbers is that they are easy to work with in computers and other digital devices, as they can be represented using simple electrical circuits. This makes binary numbers a popular choice for storing and transmitting data in the digital world.
+                </p>
+                <p class="mt-3 pragraph-font">
+                    In conclusion, hexadecimal to binary conversion is a useful tool for representing large numbers in a more compact form and for working with numbers in computers and other digital devices
+                </p>
+            </li>
+        </ul>
+    </div>

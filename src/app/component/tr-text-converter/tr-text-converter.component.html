@@ -1,0 +1,433 @@
+<div class="container">
+    <h1 class="mt-5"><b>Перетворення регістру за допомогою лічильника слів</b></h1>
+
+    <div class="output row">
+        <div>Персонажі:
+            <span id="characterCount" ng-if="text.length > 0">{{textValue.length}}</span>
+        </div>
+        <div>Слова: <span id="wordCount">{{ words }}</span></div>
+    </div>
+    <div class="output row">
+        <div>Речення: <span id="sentenceCount">{{ sentences }}</span></div>
+        <div>Абзаци: <span id="paragraphCount">{{ paragraphs }}</span></div>
+    </div>
+
+
+    <div class="row">
+
+
+        <div class="col-md-12">
+            <form class="example-form mt-4">
+                <label>Введіть текст</label>
+                <div style="float:right">
+                    <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">
+                        <i class="fa fa-clipboard p-1" style="font-size:24px;"></i>
+                        Копіювати буфер обміну</button>
+                    <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary"> <i
+                            class="fa fa-save p-1" style="font-size:24px"></i>Створити файл</button>
+                </div>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Введіть текст</mat-label>
+                    <textarea matInput rows="15" [(ngModel)]="textValue" (ngModelChange)="modelChangeFn($event)"
+                        name="Hello World" placeholder="Ex. Hello Word"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+
+            <div class="row">
+                <button mat-flat-button (click)="upperCase('upperCase')" class="mx-1 my-1" color="primary">Büyük Harf
+                    dönüştürücü</button>
+                <button mat-flat-button (click)="upperCase('titleCase')" class="mx-1 my-1" color="primary">başlık
+                    Büyük/küçük harf dönüştürücü</button>
+                <button mat-flat-button (click)="upperCase('lowerCase')" class="mx-1 my-1" color="primary">küçük harf
+                    dönüştürücü</button>
+                <button mat-flat-button (click)="upperCase('lowerCaseFirst')" class="mx-1 my-1" color="primary">küçük
+                    Harf İlk dönüştürücü</button>
+                <button mat-flat-button (click)="upperCase('sentenceCase')" class="mx-1 my-1" color="primary">cümleVaka
+                    dönüştürücü</button>
+                <button mat-flat-button (click)="upperCase('camelCase')" class="mx-1 my-1" color="accent">deve Vaka
+                    dönüştürücü</button>
+                <button mat-flat-button (click)="upperCase('pascalCase')" class="mx-1 my-1" color="warn">pascal Kasa
+                    dönüştürücü</button>
+                <button mat-flat-button (click)="upperCase('pathCase')" class="mx-1 my-1" color="accent">yol Büyük/küçük
+                    harf dönüştürücü</button>
+                <button mat-flat-button (click)="upperCase('snakeCase')" class="mx-1 my-1" color="accent">yılan Vaka
+                    dönüştürücü</button>
+                <button mat-flat-button (click)="upperCase('paramCase')" class="mx-1 my-1" color="primary">param
+                    Büyük/küçük harf dönüştürücü</button>
+                <button mat-flat-button (click)="upperCase('dotCase')" class="mx-1 my-1" color="warn">nokta
+                    durumu</button>
+                <button mat-flat-button (click)="upperCase('alternateCase')" class="mx-1 my-1" color="warn">AlTeRnAtİF
+                    DuRuM</button>
+                <button mat-flat-button (click)="upperCase('constantCase')" class="mx-1 my-1" color="primary">sabit
+                    durum dönüştürücü</button>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div>
+        <div class="p-4">
+            <h2><b>Introduction:</b></h2>
+            <p class="pragraph-font">
+                Herkes herhangi bir şey yazarken veya düzenlerken, kelimelerin veya deyimlerin durumlarını dönüştürmeye
+                ve
+                ya manuel olarak yaptıkları şeyleri düzeltin ya da herhangi bir çevrimiçi rastgele yazılım veya aracı
+                seçin. Bazı
+                araçlar yeterince verimli değil veya ideal bir dönüştürme aracının sahip olduğu kapsamlı özelliklere
+                sahip değil
+                meli
+                Sahip olmak. Ve bu sebeplerden dolayı insanlar işlerinin kasalarını değiştirirken çok büyük bir zaman
+                kaybı yaşamaktadırlar.
+                Sorunlarını kolaylaştırmak için, kolayca dönüştüren bu çevrimiçi dönüştürme aracını değerli bir şekilde
+                tasarladık.
+                metinlerinizin durumu göz açıp kapayıncaya kadar. Tek yapmanız gereken metni kopyalayıp araca
+                yapıştırmak ve
+                Boom! vakayı seçtikten sonra metniniz hazır. Bir akışta yazarken odaklanamadığınızı anlıyoruz.
+                davalarında.
+            </p>
+        </div>
+
+        <div class="p-4">
+            <h2><b>Kelime Sayacı:</b></h2>
+            <h3><b>kelime sayacı nedir?</b></h3>
+
+            <p class="pragraph-font">
+                Bir içerik parçası yazarken, her seferinde kelime sayısını takip etmek imkansızdır. Ancak, yazarların
+                ihtiyaç duyduğu gibi
+                içerik hazırlarken minimum veya maksimum kelime sayılarını takip etmek ve her çözüme ulaşmalarını
+                sağlamak
+                yazma ile ilgili olarak, bu özelliği metin dönüştürücü aracımıza dahil ettik.
+            </p>
+            <h3><b>Kelime Sayısı Nasıl Bulunur??</b></h3>
+            <p class="pragraph-font">
+                Kelime sayısını öğrenmek için metne yazmaya başlamanız yeterlidir. Kelime sayısını görecek ve
+                artacaksınız.
+                veya ihtiyacınıza göre azaltın. İçeriğinizi zaten MS Word veya Google Docs'ta yazdıysanız, biz
+                seni korudum Kelime sayısını görmek için metni kopyalayıp metin alanına yapıştırabilirsiniz.
+                Özellik burada sınırlı değil, hatta karakter sayısını bile kontrol edebilirsiniz.
+            </p>
+        </div>
+
+        <div class="p-4">
+            <h2><b>Cümle Durum Dönüştürücü:</b></h2>
+            <p class="pragraph-font">
+                Aşağı stil veya referans stili olarak da bilinen cümle durumu, bir büyük harf stili türüdür. bu
+                cümle durumlarının kullanımı akademik ve profesyonel çalışmalarda yaygın olarak bulunabilir. Cümle
+                durumu büyük harfle yazılır
+                başlıktaki ilk kelimenin ilk harfi. Başlıktaki diğer harfler ve kelimeler küçük harfle yazılır
+                özel isimler olmadıkça.
+            </p>
+            <p class="pragraph-font">
+                <b>Örnek- Delhi'deki en iyi otel, Mahatma Gandhi'nin hikayesi</b>
+            </p>
+            <h4><b><u>Cümle Durumu ile Başlık Durumu arasındaki fark nedir?</u></b></h4>
+            <p class="pragraph-font">
+                Yukarıda bahsettiğimiz cümle durumunda cümledeki ilk kelimenin ilk harfini büyük yapar.
+                Başlık. Başlıktaki kelimelerin geri kalanı büyük harfle yazılmaz.
+            </p>
+            <p class="pragraph-font">
+                Ancak başlık davası farklı çalışır. Başlıktaki her kelimenin ilk harfi büyük yazılmalıdır.
+                yukarıda da belirttiğimiz durumlar dışında “an”, “but”, “the”, “ve” gibi edatlar, edatlar ve bağlaçlar,
+                "ile ilgili." vb. küçük harf olmalıdır. Genel olarak, başlıktaki kelimelerin çoğu harfi büyük harfe
+                dönüştürülür.
+                büyük harf.
+            </p>
+            <h4><b>Case'i Cümle Case'e Dönüştürme:</b></h4>
+            <ul>
+                <li class="pragraph-font">
+                    Yazınızın büyük/küçük harfe dönüştürmek istediğiniz ifadesini veya metnini kopyalayın
+                </li>
+                <li class="pragraph-font">
+                    Kopyaladıktan sonra aracımızı açın
+                </li>
+                <li class="pragraph-font">
+                    Kopyalanan metinleri verilen metin alanına yapıştırın
+                </li>
+                <li class="pragraph-font">
+                    “Cümle Örneği” bölümüne dokunun
+                </li>
+                <li class="pragraph-font">
+                    Ve çıktınızı dönüştürücüde alacaksınız
+                </li>
+            </ul>
+        </div>
+
+        <div class="p-4">
+            <h2><b>Çevrimiçi Büyük Harften Küçük Harf üreteci:</b></h2>
+            <p class="pragraph-font">
+                Metninizi küçük harfe dönüştürmekte zorlanıyorsanız, size yardımcı olduk. Çok az şirket küçük harf
+                kullanır
+                çünkü insanlar küçük harflerin BÜYÜK HARFLERDEN daha iyi göründüğüne inanırlar. BT
+                yazının devamlılığını da sağlar.
+            </p>
+            <p class="pragraph-font">
+                <b>Örnek- Jerry, yatırıma olabildiğince erken başlamak istiyor.</b>
+            </p>
+
+            <h4><b>Büyük Harfi Küçük Harfe Dönüştür Kullanarak Büyük/Küçük Harf Nasıl Dönüştürülür:</b></h4>
+            <ul>
+                <li class="pragraph-font">
+                    Yazınızın büyük/küçük harfe dönüştürmek istediğiniz ifadesini veya metnini kopyalayın
+                </li>
+                <li class="pragraph-font">
+                    Kopyaladıktan sonra aracımızı açın
+                </li>
+                <li class="pragraph-font">
+                    Kopyalanan metni verilen metin alanına yapıştırın
+                </li>
+                <li class="pragraph-font">
+                    "Küçük harf" bölümüne dokunun
+                </li>
+                <li class="pragraph-font">
+                    Ve çıktınızı convertcase'de alacaksınız
+                </li>
+            </ul>
+        </div>
+
+        <div class="p-4">
+            <h2><b>küçük harften Büyük Harfe Dönüştürücü:</b></h2>
+            <p class="pragraph-font">
+                Bir yazar bir cümleyi veya kelimeyi vurgulamak istediğinde BÜYÜK HARF veya BÜYÜK HARF kelimeleri
+                kullanır. Ve tabi ki,
+                Yazarken her seferinde büyük harf düğmesini açıp kapatmanın ne kadar zor olduğunu anlıyoruz. Ve için
+                bu özelliği aracımıza ekledik. Bu özellik, herhangi bir metinde bulunan toplam cümleyi veya kelimeyi
+                dönüştürür.
+                bir saniye içinde BÜYÜK HARF haline getirin.
+            </p>
+            <p class="pragraph-font">
+                <b>Örnek- SOSYAL MEDYA PLATFORMLARININ KULLANIMI HIZLA GELİŞİYOR</b>
+            </p>
+
+            <h4><b>Küçük harften büyük harfe dönüştürme kullanılarak büyük/küçük harf aracı nasıl dönüştürülür?:</b>
+            </h4>
+            <ul>
+                <li class="pragraph-font">
+                    Yazınızın büyük/küçük harfe dönüştürmek istediğiniz ifadesini veya metnini kopyalayın
+                </li>
+                <li class="pragraph-font">
+                    Kopyaladıktan sonra aracımızı açın
+                </li>
+                <li class="pragraph-font">
+                    Kopyalanan metni verilen metin alanına yapıştırın
+                </li>
+                <li class="pragraph-font">
+                    “BÜYÜK HARF” bölümüne dokunun
+                </li>
+                <li class="pragraph-font">
+                    Ve ta-da! Çıktınızı convertcase'te aldınız
+                </li>
+            </ul>
+        </div>
+
+        <div class="p-4">
+            <h2><b>capitalization case converter:</b></h2>
+            <p class="pragraph-font">
+                Büyük harf kullanımı, bir kelimenin ilk harfini büyük harfe ve geri kalan harfleri küçük harfe
+                dönüştürür.
+                Büyük harf kullanımı bir başlık durumu gibi görünebilir, ancak küçük bir fark vardır. Daha önce de
+                belirttiğimiz gibi
+                yukarıda, başlık durumu edatları, makaleleri ve bağlaçları dönüştürmezken, büyük harf kullanımı
+                bir kelimenin her ilk harfini dönüştürücü.
+            </p>
+
+            <p class="pragraph-font">
+                <b>Örnek- 5g Teknolojisinin Geleceği</b>
+            </p>
+
+            <h4><b>Büyük harfe dönüştürmeyi kullanarak büyük harf nasıl dönüştürülür:</b></h4>
+            <ul>
+                <li class="pragraph-font">
+                    Büyük/küçük harfe dönüştürmek istediğiniz yazınızın tümcesini veya metnini kopyalayın
+                </li>
+                <li class="pragraph-font">
+                    Kopyaladıktan sonra aracımızı açın
+                </li>
+                <li class="pragraph-font">
+                    Kopyalanan metinleri verilen metin alanına yapıştırın
+                </li>
+                <li class="pragraph-font">
+                    "Büyük harf" bölümüne dokunun
+                </li>
+                <li class="pragraph-font">
+                    Ve çıktınızı convert durumunda alacaksınız
+                </li>
+            </ul>
+        </div>
+
+        <div class="p-4">
+            <h2><b>Alternatif durum Dönüştürücü:</b></h2>
+            <p class="pragraph-font">
+                Alternatif harf özelliği, metninizi alternatif büyük ve küçük harfe dönüştürmenize yardımcı olur
+                edebiyat,
+                ilk harf büyük harfe dönüşür, ardından küçük ikinci harf gelir, sonra tekrar
+                büyük üçüncü harf vb. Bu tür durum stili okuyucuların dikkatini çekmek için kullanılır.
+                bir
+                belirli bir metni veya ifadeyi veya yazılı bir belgenin bir bölümünü vurgulamak için.
+            </p>
+            <p class="pragraph-font">
+                <b>ÖrNeK- yApAy zEkA</b>
+            </p>
+
+            <h4><b>Alternatif büyük/küçük harfe dönüştür kullanılarak metin büyük/küçük harf nasıl değiştirilir:</b></h4>
+            <ul>
+                <li class="pragraph-font">
+                    Büyük/küçük harfe dönüştürmek istediğiniz metni alternatif bir büyük/küçük harfe kopyalayın.
+                </li>
+                <li class="pragraph-font">
+                    Kopyalamayı bitirdikten sonra aracınızı açın
+                </li>
+                <li class="pragraph-font">
+                    Kopyalanan metni sağlanan metin alanına yapıştırın
+                </li>
+                <li class="pragraph-font">
+                    “AlTeRnAt dUrUm” bölümüne dokunun
+                </li>
+                <li class="pragraph-font">
+                    Ve çıktınızı convert durumunda alacaksınız
+                </li>
+            </ul>
+        </div>
+
+        <div class="p-4">
+            <h2><b>Başlık Vaka Dönüştürücü:</b></h2>
+
+            <h3><b>Başlık davası nedir?:</b></h3>
+            <p class="pragraph-font">
+                Başlık durumu temelde Kitaplarda, Gazetelerde, Bloglarda ve Makalelerde yaygın olarak kullanılan bir stildir.
+                başlıkları veya manşetleri yapın. Profesyonel ve göz alıcı bir görünüm verir. Neredeyse her insanın satın aldığı gibi
+                a
+                kitap veya yalnızca başlıklarını kontrol ederek içeriği gözden geçirir. değil mi O zaman bir yapı oluşturmaya odaklanmalısın.
+                temiz ve uygun başlık durumu. Bunun için de bu başlık durumu dönüştürme aracından yardım alabilirsiniz.
+            </p>
+
+            <p class="pragraph-font">
+                Kısacası, başlık durumunda, cümledeki her kelime için, ilk alfabe büyük / küçük harfe dönüştürülür.
+                büyük harf
+                süre
+                çünkü kelimenin geri kalan harfleri küçük harfe dönüşür. Ancak, bazı istisnalar vardır. bu
+                başlık davası kapsamaz.
+            </p>
+
+            <ul>
+                <li class="pragraph-font">
+                    Makaleler ( a, an ve the)
+                </li>
+                <li class="pragraph-font">
+                    Bağlaçlar (ama, ve, veya vb.)
+                </li>
+                <li class="pragraph-font">
+                    Edatlar (in, for, on, up)
+                </li>
+            </ul>
+
+            <p class="pragraph-font">
+                Bununla birlikte, bir başlık davası oluşturmak kolay görünebilir ama aslında öyle değildir. Birçok kelime çeşitli şekillerde kullanılmaktadır.
+                dilbilgisi işlevleri. Örneğin, “Finansal Olarak Bana Bağımlısın”- edat olarak kullanılır.
+                içinde
+                ve ifadesi küçük harfle yazılmalıdır, ancak "Lütfen Sohbete Devam Edin" ifadesini kullandığımızda - aynısı
+                Kullanılmış
+                sıfat olarak kullanılır ve bu nedenle ilk alfabe büyük harfle yazılmalıdır.
+            </p>
+
+            <h3><b>Başlık durumu Dönüştürme kullanılarak başlık durumu Nasıl Çalışılır:</b></h3>
+            <p class="pragraph-font">
+                <b><i><u>
+                    Aracımızın yardımıyla herhangi bir metni başlık durumuna dönüştürmek için bazı adımları izlemeniz gerekir.
+                    temel
+                    adımlar
+                    aşağıda belirtilenler:
+                        </u></i></b>
+            </p>
+            <ul>
+                <li class="pragraph-font">
+                    Büyük/küçük harfe dönüştürmek istediğiniz metni kopyalayın
+                </li>
+                <li class="pragraph-font">
+                    Metnin içine yapıştırın
+                </li>
+                <li class="pragraph-font">
+                    Başlık durumu düğmesine tıklayın
+                </li>
+                <li class="pragraph-font">
+                    Ve bir saniye içinde çıkışını yap
+                </li>
+                <li class="pragraph-font">
+                    Ve çıktınızı bir saniyede alın
+                </li>
+                <li class="pragraph-font">
+                    Çıktıyı kopyalayın ve gereksinimlerinize göre kullanın
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="p-4">
+            <h3><a routerLink="/json-stringify-text"><b>string to JSON stringify dönüştürücü</b></a></h3>
+            <p class="pragraph-font">
+                JSON katmanlaştırma metninin amacı, çok yararlı olduğu katmanlı metin için biçimlendirmeyi düzeltmektir.
+                tasarruf
+                zaman.
+                Nasıl çalışır: basitçe yapmamız gereken, sol taraftaki panele otomatik olarak tabakalı yazmaya devam etmektir.
+                metin sizin için sağ panelde mevcut olacak, ardından onu kopyalayıp yapıştırabilirsiniz.
+                Bundan sonra, herhangi bir yeni satır olup olmadığını kontrol etmeniz gerekir; bunlar, şu şekilde oluşturulan /n sembollerini alır:
+                kuyu
+                bundan sonra sekmeler /t sembollerine dönüştürülürken, bize yenilemeleri ve diğer geri bildirimleri bildirin
+                Bu
+                aracımızı geliştirmemize yardımcı olabilir.
+            </p>
+        </div>
+
+        <div class="p-4">
+            <h2><a routerLink="/snake-case-converter"><b>yılan kasası Çevrimiçi Dönüştürücü Aracı</b></a></h2>
+            <p class="pragraph-font">
+                yılan durumu çoğunlukla bilgisayar dünyasında Konuşmayı adlandırmak için kullanılır. değişken tanımla,
+                alt program
+                adlandırın ve bazılarını oluşturun.
+                ESKİ. yılan_durumu
+                boşluk arasındaki iki kelimenin alt çizgi (_) ile değiştirildiği yılan durumu referans stili
+                yılan vakası ilk ikincisi küçüktür, camelCase ile simüler.
+            </p>
+        </div>
+
+        <div class="p-4">
+            <h3><a routerLink="/bindarycode-to-english-translator"><b>İngilizce'den İkili çeviriciye dönüştürücü:</b></a></h3>
+            <p class="pragraph-font">
+                Bu araç, ikiliyi İngilizceye ve İngilizceyi ikiliye dönüştürmenize yardımcı olur. İngilizceyi ikiliye çevirdiğinizde
+                sadece geri döndüğünde
+                0 ve 1. 0 ve 1 ikili açık ve kapalıyı, "0" elektrik akışının olmadığını ve "1"i temsil eder.
+                temsil etmek
+                elektriğin akmasına izin verilir.
+            </p>
+
+            <p>
+                (E.g: 01000101 01111000 01100001 01101101 01110000 01101100 01100101):
+            </p><br>
+
+            <p class="pragraph-font">
+                herkes tarafından kullanılan uzun ve çeşitli bir tarihe sahip en eskilerden biridir.
+                şu anda bu dünyada bilgisayar dilleri. Bu dilin yalnızca olabileceği ikili kod kullanarak
+                anladım
+                makineler tarafından. bu, ingilizcenizi ikili koda dönüştürmenize yardımcı olacak, ayrıca iyi bir geliştirmede yardımcı olacaktır.
+                Seçtiğiniz metnin farklı görünümünü ve stilini tamamen dönüştürmek için stil değişikliği
+                bazı gizli veya gizli metin mesajlarını korumak istediğimizde, bu ikili kod bu konuda yardımcı olacaktır.
+                durum.
+                en kolay ve basit yol budur.
+                sadece bir çeviri aracı kullanarak ASCII'yi ikili koda çevirmeye yardımcı olur, tümünü hızlandırabilir
+                tecrübe etmek.
+            </p>
+
+            <h3><b>İngilizceyi ikiliye dönüştürme</b></h3>
+            <p>İkili ASCII kodunu metne dönüştürün:</p>
+            <ul>
+                <li>İkili bayt al</li>
+                <li>İkili baytı ondalığa dönüştür</li>
+                <li>ASCII tablosundan ASCII kodunun karakterini alın</li>
+                <li>Sonraki baytla devam et</li>
+            </ul>
+        </div>
+    </div>
+</div>

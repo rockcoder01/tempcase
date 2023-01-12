@@ -1,0 +1,462 @@
+<div class="container">
+    <h1 class="mt-5"><b>ConvertCase avec compteur de mots</b></h1>
+
+    <div class="output row">
+        <div>Personnages:
+            <span id="characterCount" ng-if="text.length > 0">{{textValue.length}}</span>
+        </div>
+        <div>Mots: <span id="wordCount">{{ words }}</span></div>
+    </div>
+    <div class="output row">
+        <div>Phrases: <span id="sentenceCount">{{ sentences }}</span></div>
+        <div>Paragraphes: <span id="paragraphCount">{{ paragraphs }}</span></div>
+    </div>
+
+
+    <div class="row">
+
+
+        <div class="col-md-12">
+            <form class="example-form mt-4">
+                <label>Entrez du texte</label>
+                <div style="float:right">
+                    <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">
+                        <i class="fa fa-clipboard p-1" style="font-size:24px;"></i>
+                        Copier le presse-papiers</button>
+                    <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary"> <i
+                            class="fa fa-save p-1" style="font-size:24px"></i>Créer un fichier </button>
+                </div>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Entrez du texte</mat-label>
+                    <textarea matInput rows="15" [(ngModel)]="textValue" (ngModelChange)="modelChangeFn($event)"
+                        name="Hello World" placeholder="Ex. Hello Word"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+            <div class="alert alert-success" *ngIf="formateType" role="alert">
+                convertcase successfully to uppercase - {{formateType}}
+            </div>
+            <div class="row">
+                <button mat-flat-button (click)="upperCase('upperCase')" class="mx-1 my-1" color="primary">
+                    Conversion majuscule</button>
+                <button mat-flat-button (click)="upperCase('titleCase')" class="mx-1 my-1" color="primary">conversion de
+                    la casse du titre</button>
+                <button mat-flat-button (click)="upperCase('lowerCase')" class="mx-1 my-1" color="primary">conversion en
+                    minuscules</button>
+                <button mat-flat-button (click)="upperCase('lowerCaseFirst')" class="mx-1 my-1" color="primary">première
+                    conversion en minuscules</button>
+                <button mat-flat-button (click)="upperCase('sentenceCase')" class="mx-1 my-1" color="primary">conversion
+                    de casse de phrase </button>
+                <button mat-flat-button (click)="upperCase('camelCase')" class="mx-1 my-1" color="accent">cas de chameau
+                    convertir</button>
+                <button mat-flat-button (click)="upperCase('pascalCase')" class="mx-1 my-1" color="warn">convertir cas
+                    pascal</button>
+                <button mat-flat-button (click)="upperCase('pathCase')" class="mx-1 my-1" color="accent">convertir la
+                    casse du chemin</button>
+                <button mat-flat-button (click)="upperCase('snakeCase')" class="mx-1 my-1" color="accent">cas de serpent
+                    convertir </button>
+                <button mat-flat-button (click)="upperCase('paramCase')" class="mx-1 my-1" color="primary">param
+                    Conversion de casse</button>
+                <button mat-flat-button (click)="upperCase('dotCase')" class="mx-1 my-1" color="warn">pointCase</button>
+                <button mat-flat-button (click)="upperCase('alternateCase')" class="mx-1 my-1" color="warn">cas
+                    alternatif</button>
+                <button mat-flat-button (click)="upperCase('constantCase')" class="mx-1 my-1" color="primary">conversion
+                    en casse constante </button>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div>
+        <div class="p-4">
+            <h2><b>introduction:</b></h2>
+            <p class="pragraph-font">
+
+                Tout le monde, en écrivant des trucs ou en éditant, est resté bloqué sur la conversion des cas des mots
+                ou des phrases et sur corrigez ces choses qu'ils font manuellement ou optez pour n'importe quel logiciel
+                ou outil aléatoire en
+                ligne. Quelque de les outils ne sont pas assez efficaces ou n'ont pas les fonctionnalités étendues d'un
+                outil de
+                conversion idéal devraient avoir.
+                Et pour ces raisons, les gens perdent une plus grande partie de leur temps à changer les boîtiers de
+                leurs.
+                Pour atténuer leurs ennuis, nous avons précieusement conçu cet outil de conversion en ligne qui se
+                transforme facilement
+                le cas de vos textes en un clin d'œil. Tout ce que vous avez à faire est de copier le texte et de le
+                coller dans l'outil
+                et boom! après avoir sélectionné le cas, votre texte est prêt. Nous comprenons que lorsque vous écrivez
+                dans un flux, vous ne pouvez pas
+                se concentrer
+                sur ses cas.
+            </p>
+        </div>
+
+        <div class="p-4">
+            <h2><b>Compteur de mots:</b></h2>
+            <h3><b>Qu'est-ce qu'un compteur de mots ?</b></h3>
+
+            <p class="pragraph-font">
+                Lors de la rédaction d'un contenu, il est impossible de suivre le nombre de mots à chaque fois. Mais, en
+                tant qu'écrivains
+                besoin
+                suivre le nombre de mots minimum ou maximum lors de la préparation du contenu et s'assurer qu'ils
+                obtiennent tous
+                la solution
+                liés à l'écriture, nous avons intégré cette fonctionnalité dans notre outil de conversion de texte.
+            </p>
+            <h3><b>comment savoir le nombre de mots?</b></h3>
+            <p class="pragraph-font">
+                Pour connaître le nombre de mots, commencez simplement à taper dans le texte. Vous verrez le nombre de
+                mots et
+                augmenter
+                ou diminuez-les selon vos besoins. Si vous avez déjà tapé votre contenu sur MS Word ou Google
+                Docs, nous
+                vous a couvert. Vous pouvez simplement copier le texte et le coller dans la zone de texte pour voir le
+                nombre de
+                mots.
+                La fonctionnalité n'est pas limitée ici, vous pouvez même vérifier le nombre de caractères même.
+            </p>
+        </div>
+
+        <div class="p-4">
+            <h2><b>Convertir la casse de la phrase:</b></h2>
+            <p class="pragraph-font">
+                La casse de la phrase, également appelée style vers le bas ou style de référence, est un type de style
+                de capitalisation.
+                Le l'utilisation de cas de phrase peut être largement trouvée dans les travaux universitaires et
+                professionnels. Le cas de la phrase capitalise
+                le première lettre du premier mot du titre. Le reste des lettres et des mots du titre est
+                minuscule sauf s'il s'agit de noms propres.
+            </p>
+            <p class="pragraph-font">
+                <b>Exemple - Le meilleur hôtel de Delhi, L'histoire du Mahatma Gandhi</b>
+            </p>
+            <h4><b><u>quelle est la différence entre la casse de la phrase et la casse du titre?</u></b></h4>
+            <p class="pragraph-font">
+                dans le cas de la phrase, nous l'avons mentionné ci-dessus, il met en majuscule la première lettre du
+                tout premier mot du titre. le reste des mots du titre ne sont pas en majuscules.
+            </p>
+            <p class="pragraph-font">
+                mais la casse du titre fonctionne différemment. la première lettre de chaque mot du titre doit être en
+                majuscule
+                sauf comme nous l'avons également mentionné ci-dessus, les prépositions, les articles et les
+                conjonctions comme "un", "mais", "le",
+                "et",
+                "de." etc devrait être en minuscules. généralement, la plupart des lettres des mots dans la casse du
+                titre se transforment en
+                majuscule.
+            </p>
+            <h4><b>Comment convertir un cas en cas de phrase:</b></h4>
+            <ul>
+                <li class="pragraph-font">
+                    Copiez la phrase ou le texte de votre écriture que vous souhaitez convertir en casse
+                </li>
+                <li class="pragraph-font">
+                    Après avoir copié, ouvrez notre outil
+                </li>
+                <li class="pragraph-font">
+                    Collez le texte copié dans la zone de texte donnée
+                </li>
+                <li class="pragraph-font">
+                    Appuyez sur la section "Cas de la peine"
+                </li>
+                <li class="pragraph-font">
+                    et vous obtiendrez votre sortie sur convertcase
+                </li>
+            </ul>
+        </div>
+
+        <div class="p-4">
+            <h2><b>Générateur de majuscules en minuscules en ligne:</b></h2>
+            <p class="pragraph-font">
+                Si vous avez du mal à convertir votre texte en minuscules, nous avons ce qu'il vous faut. Peu
+                d'entreprises utilisent
+                minuscule
+                lettres pour leur logo parce que les gens croient que les lettres minuscules sont pratiquement
+                meilleures que les MAJUSCULES. Il
+                maintient la continuité de l'écriture aussi.
+            </p>
+            <p class="pragraph-font">
+                <b>Exemple- jerry veut commencer l'investissement le plus tôt possible.</b>
+            </p>
+
+            <h4><b>Comment convertir la casse à l'aide de Convertir en minuscules:</b></h4>
+            <ul>
+                <li class="pragraph-font">
+                    Copiez la phrase ou le texte de votre écriture que vous souhaitez convertir en minuscules </li>
+                <li class="pragraph-font">
+                    Après la copie, ouvrez votre outil
+                </li>
+                <li class="pragraph-font">
+                    Collez le texte copié dans la zone de texte donnée </li>
+                <li class="pragraph-font">
+                    Appuyez sur la section "minuscules"
+                </li>
+                <li class="pragraph-font">
+                    Et vous obtiendrez votre sortie sur convertcase
+                </li>
+            </ul>
+        </div>
+
+        <div class="p-4">
+            <h2><b>minuscule en majuscule:</b></h2>
+            <p class="pragraph-font">
+                Lorsqu'un écrivain veut mettre l'accent sur une phrase ou un mot, il utilise des mots en MAJUSCULES ou
+                en MAJUSCULES. Et de
+                cours,
+                nous comprenons à quel point il est difficile d'activer ou de désactiver le bouton du capuchon à chaque
+                fois pendant l'écriture. Et
+                pour
+                cela, nous avons ajouté cette fonctionnalité à notre outil. Cette fonction convertit la totalité de la
+                phrase ou du mot qui se trouve dans
+                tout
+                cas en MAJUSCULES en une seconde.
+            </p>
+            <p class="pragraph-font">
+                <b>Exemple - L'UTILISATION DES PLATEFORMES DE MÉDIAS SOCIAUX EST EN PLEIN ESSOR</b>
+            </p>
+
+            <h4><b>Comment convertir l'outil en utilisant convertir en majuscule:</b></h4>
+            <ul>
+                <li class="pragraph-font">
+                    Copiez la phrase ou le texte de votre écriture que vous souhaitez convertir en casse
+                </li>
+                <li class="pragraph-font">
+                    Après avoir copié, ouvrez notre outil
+                </li>
+                <li class="pragraph-font">
+                    Collez les textes copiés dans la zone de texte donnée
+                </li>
+                <li class="pragraph-font">
+                    Appuyez sur la section "MAJUSCULES"
+                </li>
+                <li class="pragraph-font">
+                    Et ta-da ! Vous avez votre sortie sur convertcase
+                </li>
+            </ul>
+        </div>
+
+        <div class="p-4">
+            <h2><b>capitalisation convertir cas:</b></h2>
+            <p class="pragraph-font">
+                La capitalisation convertit la première lettre d'un mot en majuscule et en minuscule le reste des
+                lettres.
+                La capitalisation peut ressembler à une casse de titre, cependant, il y a une petite différence. Comme
+                nous l'avons déjà mentionné
+                ci-dessus, la casse du titre ne convertit pas les prépositions, les articles et les conjonctions alors
+                que la capitalisation
+                convertit chaque première lettre d'un mot.
+            </p>
+
+            <p class="pragraph-font">
+                <b>Exemple - L'avenir de la technologie 5g</b>
+            </p>
+
+            <h4><b>Comment convertir la casse à l'aide de la conversion en majuscules :</b></h4>
+            <ul>
+                <li class="pragraph-font">
+                    Copiez la phrase ou le texte de votre écriture que vous souhaitez convertir en majuscule
+                </li>
+                <li class="pragraph-font">
+                    Après la copie, ouvrez notre outil
+                </li>
+                <li class="pragraph-font">
+                    Collez le texte copié dans la zone de texte donnée
+                </li>
+                <li class="pragraph-font">
+                    Appuyez sur la section « Majuscules »
+                </li>
+                <li class="pragraph-font">
+                    Et vous obtiendrez votre sortie sur le cas de conversion
+                </li>
+            </ul>
+        </div>
+
+        <div class="p-4">
+            <h2><b>Convertisseur alternatif:</b></h2>
+            <p class="pragraph-font">
+                La fonction de casse alternative vous aidera à convertir votre texte en majuscules et minuscules
+                alternées
+                des lettres,
+                la première lettre se transforme en une lettre majuscule suivie de la deuxième lettre minuscule, puis à
+                nouveau
+                troisième lettre majuscule et ainsi de suite. Ce type de style de cas est utilisé pour attirer
+                l'attention des lecteurs
+                à un
+                un texte ou une phrase spécifique ou pour mettre en évidence une partie d'un document écrit.
+            </p>
+            <p class="pragraph-font">
+                <b>ExEmPlE - InTeLlIgEnCe aRtIfIcIeLlE</b>
+            </p>
+
+            <h4><b>Comment Changer La Casse Du Texte à L'Aide De La Conversion En Casse Alternative:</b></h4>
+            <ul>
+                <li class="pragraph-font">
+                    Copiez le texte dont vous souhaitez convertir la casse en une autre casse.
+                </li>
+                <li class="pragraph-font">
+                    Une fois que vous avez fini de copier, ouvrez votre outil
+                </li>
+                <li class="pragraph-font">
+                    Collez le texte copié dans la zone de texte fournie
+                </li>
+                <li class="pragraph-font">
+                    Tapez sur la section "Cas Alternatif"
+                </li>
+                <li class="pragraph-font">
+                    Et vous obtiendrez votre sortie sur le cas de conversion
+                </li>
+            </ul>
+        </div>
+
+        <div class="p-4">
+            <h2><b>Convertisseur de casse de titre:</b></h2>
+
+            <h3><b>Qu'est-ce qu'un cas de titre?:</b></h3>
+            <p class="pragraph-font">
+                Casse de titre essentiellement un style qui a été largement utilisé dans les livres, les journaux, les
+                blogs et les articles pour
+                faire les titres ou les manchettes. Il donne un look professionnel et accrocheur. Comme presque tout le
+                monde achète
+                une
+                livre ou parcourt le contenu en ne vérifiant que ses titres. N'est-ce pas? Ensuite, vous devriez vous
+                concentrer sur la construction d'un
+                cas de titre propre et propre. Et pour cela, vous pouvez vous aider de cet outil de conversion de cas de
+                titre.
+            </p>
+
+            <p class="pragraph-font">
+                En bref, dans la casse du titre, pour chaque mot de la phrase, le premier alphabet convertit la casse en
+                majuscule
+                tandis que
+                pour le reste des alphabets du mot se transforme en minuscule. Cependant, il y a certaines exceptions.
+                Le
+                la casse du titre ne couvre pas.
+            </p>
+
+            <ul>
+                <li class="pragraph-font">
+                    Articles ( un, un et le)
+                </li>
+                <li class="pragraph-font">
+                    Conjonctions (mais, et, ou etc)
+                </li>
+                <li class="pragraph-font">
+                    Prépositions (dans, pour, sur, haut)
+                </li>
+            </ul>
+
+            <p class="pragraph-font">
+                Cependant, il peut sembler facile de créer un cas de titre, mais en réalité, ce n'est pas le cas. De
+                nombreux mots sont utilisés dans divers
+                fonctions grammaticales. Par exemple, "Vous êtes financièrement dépendant de moi" - on est utilisé comme
+                préposition
+                dans
+                la phrase et doit être en minuscules, mais lorsque nous utilisons "Veuillez poursuivre la conversation"
+                - la même chose est
+                utilisé
+                comme un adjectif et donc le premier alphabet doit être en majuscule.
+            </p>
+
+            <h3><b>Comment travailler le convertisseur de cas de titre:</b></h3>
+            <p class="pragraph-font">
+                <b><i><u>
+                            Pour convertir n'importe quel texte en casse de titre à l'aide de notre outil, vous devez
+                            suivre quelques
+                            basique
+                            pas
+                            qui sont mentionnés ci-dessous :
+                        </u></i></b>
+            </p>
+            <ul>
+                <li class="pragraph-font">
+                    Copiez le texte que vous voulez convertir en casse
+                </li>
+                <li class="pragraph-font">
+                    Collez-le dans le texte sont
+                </li>
+                <li class="pragraph-font">
+                    Cliquez sur le bouton de casse du titre
+                </li>
+                <li class="pragraph-font">
+                    Et sortez en une seconde
+                </li>
+                <li class="pragraph-font">
+                    Et obtenez votre sortie en une seconde
+                </li>
+                <li class="pragraph-font">
+                    Copiez la sortie et utilisez-la selon vos besoins
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="p-4">
+            <h3><a routerLink="/json-stringify-text"><b>Convertisseur String TO JSON Stringify</b></a></h3>
+            <p class="pragraph-font">
+                le but de json stratify text est de corriger la mise en forme du texte stratifié, il est très utile dans
+                économie
+                temps.
+                comment ça marche: il suffit de continuer à écrire sur le panneau de gauche automatiquement le stratifié
+                le texte sera disponible pour vous dans le panneau de droite, vous pouvez simplement le copier et le coller à travers
+                après cela, vous devez vérifier s'il y a de nouvelles lignes, celles-ci obtiennent les symboles / n générés en tant que
+                Bien
+                car les onglets sont convertis en symboles / t après cela, informez-nous des reconditionnements et autres commentaires
+                cette
+                peuvent nous aider à améliorer notre outil.
+            </p>
+        </div>
+
+        <div class="p-4">
+            <h2><a routerLink="/snake-case-converter"><b>Outil de conversion de cas de serpent en ligne</b></a></h2>
+            <p class="pragraph-font">
+                cas de serpent principalement utilisé pour nommer Conversation dans le monde informatique, comme. définir une variable,
+                sous-programme
+                nommer et en créer.
+                EX. serpent_case
+                style de référence de cas de serpent que deux mots entre l'espace remplacent dans le trait de soulignement (_)
+                le premier cas de serpent est petit, il est similaire à camelCase.
+            </p>
+        </div>
+
+        <div class="p-4">
+            <h3><a routerLink="/bindarycode-to-english-translator"><b>Traducteur anglais vers binaire:</b></a></h3>
+            <p class="pragraph-font">
+                it's tool help you to translate english to binary.when you convert english to binary
+                when return only
+                0 and 1. the 0 and 1 binary represent On and off,"0" represents no flow of electricity, and "1"
+                represents
+                electricity being allowed to flow.
+            </p>
+
+            <p>
+                (E.g: 01000101 01111000 01100001 01101101 01110000 01101100 01100101):
+            </p><br>
+
+            <p class="pragraph-font">
+                it is one of the oldest having a long and diverse history used by all most all
+                computing languages ​​right now in this world. By using binary code which this language can only be
+                understood
+                by machines. this will help in converting your text into binary code also helps in improving a good
+                stylistic change to utterly transform the different look and style of the text you have selected
+                when we want to maintain some secret or hidden text messages this binary code will help in this
+                situation.
+                which is the easiest and simplest way.
+                it helps in translating ASCII to binary code just by using a translation tool it can speed up the entire
+                experience.
+            </p>
+
+            <h3><b>comment traduire l'anglais en binaire</b></h3>
+            <p>traduire l'anglais en code ASCII binaire:</p>
+            <ul>
+                <li>Obtenir l'octet binaire</li>
+                <li>Convertir un octet binaire en décimal</li>
+                <li>Obtenir le caractère du code ASCII de la table ASCII</li>
+                <li>Continuer avec l'octet suivant</li>
+            </ul>
+        </div>
+    </div>
+</div>

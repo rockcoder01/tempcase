@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <h1 class="mt-4 font-weight-bold">decimal to binary converter</h1>
+    <div class="row">
+        <div class="col-md-12"><app-binary-translator-filter [selectedOption1]="'decimal'" [selectedOption]="'binary'"></app-binary-translator-filter>
+        </div>
+        <div class="col-md-6">
+            <h2>decimal Input</h2>
+            <form class="example-form mt-1" [formGroup]="formGroup">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Type or Paste Your Content Here</mat-label>
+                    <textarea id="octal" matInput rows="4" type="text" required pattern="^[0-9]+(\.[0-9]+)?$"
+                        (keyup)="decimalToBinary()" formControlName="textValue" name="textEnter"
+                        placeholder="Ex. 10101"></textarea>
+                    <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+                <div class="error-message"
+                    *ngIf="formGroup.get('textValue')?.invalid && formGroup.get('textValue')?.touched">
+                    Please enter a valid binary string
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2>binary Output</h2>
+            <form class="example-form mt-1">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Output
+                        binary to decimal Converter</mat-label>
+                    <textarea matInput rows="4" [(ngModel)]="changeTextValue" id="text-content-change"
+                        name="changetext"></textarea>
+                </mat-form-field>
+            </form>
+            <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
+            <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
+        </div>
+    </div>
+
+    <hr>
+    <div class="p-4">
+        <h2><b>decimal to binary converter overview</b></h2>
+        <h3><b>Introduction:</b></h3>
+        <p class="pragraph-font">
+            Decimal to binary conversion is a common task in computer science and is often used to represent large
+            numbers in a more compact form. In this blog post, we will look at an algorithm for converting decimal
+            numbers to binary numbers and discuss the unique features and benefits of this conversion process.
+        </p>
+
+        <p class="pragraph-font">
+            First, let's define what decimal and binary numbers are. Decimal numbers are a base-10 numbering system,
+            which means that they consist of 10 digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9. Binary numbers, on the other
+            hand, are a base-2 numbering system, which means that they consist of only two digits: 0 and 1. These digits
+            are often referred to as "bits" in the context of computer science.
+        </p>
+
+        <h3><b>Now that we have a basic understanding of decimal and binary numbers, let's look at the algorithm for
+                converting decimal numbers to binary numbers. This algorithm involves the following steps:</b></h3>
+        <ol>
+            <li class="pragraph-font">Divide the decimal number by 2 and record the remainder.</li>
+            <li class="pragraph-font">Divide the result of the division by 2 and record the remainder.</li>
+            <li class="pragraph-font">Repeat the process until the result of the division is 0.</li>
+            <li class="pragraph-font">Write the remainders in reverse order to get the binary equivalent of the decimal number.</li>
+        </ol>
+        <h3><b>For example, let's say we want to convert the decimal number 86 to its binary equivalent. First, we
+                divide 86 by 2 and record the remainder: 86 / 2 = 43 with a remainder of 0. Then, we divide 43 by 2 and
+                record the remainder: 43 / 2 = 21 with a remainder of 1. We continue this process until the result of
+                the division is 0:</b></h3>
+
+        <ul>
+            <li class="pragraph-font">21 / 2 = 10 with a remainder of 1</li>
+            <li class="pragraph-font">10 / 2 = 5 with a remainder of 0</li>
+            <li class="pragraph-font">5 / 2 = 2 with a remainder of 1</li>
+            <li class="pragraph-font">2 / 2 = 1 with a remainder of 0</li>
+            <li class="pragraph-font">1 / 2 = 0 with a remainder of 1</li>
+        </ul>
+        <p class="pragraph-font">
+            Finally, we write the remainders in reverse order to get the binary equivalent of the decimal number: 1 0 1 0 0 1 1 0.
+        </p>
+        <p class="pragraph-font">
+            As you can see, this algorithm is relatively simple and easy to implement, making it a useful tool for converting decimal numbers to binary numbers. It is also a useful tool for representing large numbers in a more compact form, as binary numbers are generally shorter and easier to read than their decimal counterparts.
+        </p>
+        <p class="pragraph-font">
+            One of the main advantages of binary numbers is that they are easy to work with in computers and other digital devices, as they can be represented using simple electrical circuits. This makes binary numbers a popular choice for storing and transmitting data in the digital world.
+        </p>
+        <p class="pragraph-font">
+            In conclusion, decimal to binary conversion is a useful tool for representing large numbers in a more compact form and for working with numbers in computers and other digital devices. 
+        </p>
+    </div>

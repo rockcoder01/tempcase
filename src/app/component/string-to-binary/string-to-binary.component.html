@@ -2,28 +2,31 @@
     <h1 class="mt-4 font-weight-bold">Binary to English Translator</h1>
     <div class="row">
         <div class="col-md-6">
-            <form class="example-form mt-4">
+            <h2>binary Input</h2>
+            <form class="example-form mt-1" [formGroup]="formGroup">
                 <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Enter Text</mat-label>
-                    <textarea matInput rows="15" (keyup)="stringTobinary()" [(ngModel)]="textValue" name="textEnter"
-                        placeholder="Ex. Hello Word"></textarea>
+                    <mat-label>Type or Paste Your Content Here</mat-label>
+                    <textarea id="octal" matInput rows="4" type="text" (keyup)="binaryToText()"
+                        formControlName="textValue" name="textEnter" placeholder="Ex. 10101"></textarea>
                     <button *ngIf="textValue" matSuffix mat-icon-button aria-label="Clear" (click)="textValue=''">
                         <mat-icon>close</mat-icon>
                     </button>
                 </mat-form-field>
+                <!-- <div class="error-message" *ngIf="formGroup.get('textValue')?.invalid && formGroup.get('textValue')?.touched">
+                    Please enter a valid binary string
+                </div> -->
             </form>
         </div>
         <div class="col-md-6">
-            <form class="example-form mt-4">
+            <h2>Text Output</h2>
+            <form class="example-form mt-1">
                 <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>binary code</mat-label>
-                    <textarea matInput rows="15" [(ngModel)]="changeTextValue" id="text-content-change"
-                        name="changetext" placeholder="Ex.1101000 1100101 1101100 1101100 1101111 100000"></textarea>
+                    <mat-label>Output
+                        binary to Text Converter</mat-label>
+                    <textarea matInput rows="4" [(ngModel)]="changeTextValue" id="text-content-change"
+                        name="changetext"></textarea>
                 </mat-form-field>
             </form>
-            <div class="alert alert-success" *ngIf="formateType" role="alert">
-                text convertcase successfully to - {{formateType}}
-            </div>
             <button mat-flat-button class="mx-1 my-1" color="primary" (click)="copyClipBoard()">Copy clipboard</button>
             <button mat-flat-button (click)="createFile()" class="mx-1 my-1" color="primary">Create File</button>
         </div>
@@ -64,6 +67,19 @@
             ASCII text is mainly used in electronic devices to maintain the standard for character sets.
         <p>
         <p class="pragraph-font">
+            A binary to English translator is a tool that allows users to convert binary code into human-readable text.
+            Binary code is a series of 0s and 1s that computers use to store and process data. While humans can't read
+            binary code directly, a binary to English translator can convert the code into readable text, making it
+            easier for humans to understand and work with.
+        <p>
+        <p class="pragraph-font">
+            Binary to English translators are useful for a variety of purposes, including computer programming, data
+            analysis, and cryptography. By using a binary to English translator, users can more easily understand and
+            work with binary code, saving time and effort and improving their understanding of this important coding
+            language.
+        <p>
+
+        <p class="pragraph-font">
             We provide an easy-to-use converter platform to transform English letters into binary digits without any
             cost. You also feel free to enter unwanted instructions or details that create hindrances in your
             conversion. It does not require additional expertise or installation as it is an online conversion tool. The
@@ -79,6 +95,8 @@
             <li>You will get the desired result in binary 0 and 1 format</li>
         </ul>
         <p class="pragraph-font">
-            Convertcase tool accurately translates the selected english into binary codes without mistakes. This process is time-saving and also gives precise results to the programmer. You can complete your tasks with accuracy by using our converter tool online.
+            Convertcase tool accurately translates the selected english into binary codes without mistakes. This process
+            is time-saving and also gives precise results to the programmer. You can complete your tasks with accuracy
+            by using our converter tool online.
         </p>
     </div>
